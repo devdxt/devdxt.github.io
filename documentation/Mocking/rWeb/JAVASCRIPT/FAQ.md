@@ -18,6 +18,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 ## What Are The Pre-Requisites?
  * node.js 4+ (npm is included in the package)
+ * If inside of Walmart you need npm access to the internal [nexus/npm repo](https://confluence.walmart.com/display/PGPTOOLS/NPM+and+Nexus)
 
 <br>
 
@@ -25,7 +26,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 ```javascript
 "dependencies": {
-  "shifu": "1.0.0" // add the latest version
+  "@walmart/shifu": "3.0.4" // add the latest version
 }
 ```
 
@@ -75,7 +76,7 @@ shifu.route({
 ## How To Read Dynamic URLs In Request?
 
 ```javascript
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/get/customerInfo/{customerid}/{zipcode}'
   handler: function(request, reply) { 
@@ -91,7 +92,7 @@ shifu.route({
 ## How To Read Header Parameters In Request?
 
 ```javascript
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
@@ -110,7 +111,7 @@ shifu.route({
 ## How To Read Payload In Request?
 
 ```javascript
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
@@ -126,7 +127,7 @@ shifu.route({
 ## How To Read Query Parameters In Request?
 
 ```javascript
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
@@ -144,7 +145,7 @@ shifu.route({
 To read the dynamic URL parameters in request with in the route, use `request.params`
 
 ```
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/api/customer/{id}'
   handler: function(req, reply) {
@@ -155,7 +156,8 @@ shifu.route({
 ```
 
 <br>
-## How to add delay to response ?
+
+## How to add delay to response?
 
 A mocked response can also be delayed by some time specified by the user. You can simulate a delay (in ms) by passing delay as follows :
 ```
@@ -405,19 +407,20 @@ Mocked directory path is the location to the base directory where all your mocke
 
 ```javascript
 require('./endpoints');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
 
 <br>
 
 ## Location For Response File For RespondWithFile?
-If you have set your default folder to be `mocked-data`, then based on your URL path:
-
+If you have set your default folder to be `mocked-data`, then based on your URL path: 
+ 
 For default variant, mock server will look for `./mocked-data/product/grouping/api/collection/GET/default.json` 
 and for `mixItem` variant mock server will look for `./mocked-data/product/grouping/api/collection/GET/mixItem.json` 
 
@@ -532,6 +535,12 @@ curl -H "Content-type: application/json" -X POST -d "variant":"helloUniverse"}' 
 
 <br>
 
+## Can I reset all variants for all the routes?
+Yes. Please refer [resetAllVariants](/documentation/Mocking/rWeb/JAVASCRIPT/API%20Guide#reset-all-variants---resetallvariants) in API guide section.
+
+
+<br>
+
 ## What Is Mock Server UI Used For? 
 UI can be used to view and test mocked routes as well as for manual switching of variants when running tests manually. 
 
@@ -554,13 +563,14 @@ Add `sessions` parameter with number of virtual services you want as shown in be
 
 ```javascript
 require('./endpoints');
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
   sessions: 2,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
 

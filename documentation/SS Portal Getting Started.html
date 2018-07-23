@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="inner-container">
+  <div class="breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png" srcset="/images/arrow-right-icon%402x.png 2x,
+                   /images/arrow-right-icon%403x.png 3x" class="arrow-right-icon" />
+      <span class="breadcrumb__current-page">SS Portal Getting Started</span>
+    </p>
+  </div>
+  <div class="accordion-content custom-page-content">
+<h2>Self Service Portal Getting Started Guide</h2>
+<h3>Access</h3>
+<p>Use of the Self-Service Portal (S.S. Portal) requires logging in with the same credentials you use to log in to JIRA, GEC Github and other internal services. Users must be granted permissions to view the UI, which is handled when a team is onboarded.</p>
+<p>If you are having issues logging in, please file a ticket on the DXT <a href="https://jira.walmart.com/servicedesk/customer/portal/1422/create/3640">service desk</a> with your user ID and the repository of your team (e.g. <em>R-Discovery/product</em>).</p>
+<h3>Viewing your project</h3>
+<p>After logging in, a list of projects is presented in the left menu.</p>
+<p><img src="./images/self-service/list_of_projects.png?raw=true" alt="list_of_projects" title="List of Projects" /></p>
+<p>Clicking on your project name will display a workspace view offering access to your configured test plans:</p>
+<p><img src="./images/self-service/workspace_view.png?raw=true" alt="workspace_view" title="Workspace View" /></p>
+<h3>Reporting</h3>
+<p>From the workspace view, you can access the reporting view for any test plan by clicking &quot;View Reporting&quot; on the test plan card.</p>
+<p>This will show a summary view of the test plan:</p>
+<p><img src="./images/self-service/summary_view.png?raw=true" alt="summary_view" title="Summary View" /></p>
+<h4>Test Case Health</h4>
+<p>This panel shows a breakdown of test case passes and fails for the time period displayed on the panel. This gives you insight in to the overall health of your test suite in recent runs and how the results are trending.</p>
+<h4>Test Run Execution Time</h4>
+<p>Displays a comparison of the runs in the time period denoted on the panel, showing how long each run took in the testing phase.</p>
+<h4>Test Cases</h4>
+<p>Shows the number of test cases executed across each run in the time period displayed on the panel.</p>
+<h4>All Test Runs</h4>
+<p>A list of test runs in reverse chronological order (latest to oldest) with overall result of the run displayed.</p>
+<p>You can use the &quot;Filter Test Runs by Date&quot; option to show only test runs on a specified date (click on &quot;Filter Test Runs by Date&quot; to show a date picker):</p>
+<p><img src="./images/self-service/date_picker.png?raw=true" alt="date_picker" title="Date Picker" /></p>
+<p>Additionally, typing in the &quot;Search by Test Run Name, Commit ID or PR #&quot; field allows you to easily locate a specific run:</p>
+<p><img src="./images/self-service/search_by_test_run_name.png?raw=true" alt="search_by_test_run" title="Search by Test Run" /></p>
+<p>Clicking on a run will show the reporting view for that run specifically:</p>
+<p><img src="./images/self-service/reporting_view.png?raw=true" alt="reporting_view" title="Reporting View" /></p>
+<h4>Health Across Test Cases</h4>
+<p>Shows the breakdown of passing and failing test cases in the run.</p>
+<h4>Test Case Performance</h4>
+<p>On the left, this shows the 5 test cases that took the longest to execute. Hover over the browser icon to the right of the execution time to see which browser the test case ran in.</p>
+<p>On the right, this shows the 5 test cases that required the most retries to complete. Again, hovering over the browser icon shows the browser that the test case ran in.</p>
+<p><img src="./images/self-service/test_case_performance.png?raw=true" alt="test_case_performance" title="Test Case Performance" /></p>
+<h4>Test Cases</h4>
+<p>This panel shows the individual test cases in the run, and a summary of pass/fail per browser.</p>
+<p>Clicking &quot;All Status&quot; will allow filtering to show Passing, Failing or All test cases.</p>
+<p><img src="./images/self-service/test_case_status.png?raw=true" alt="test_case_status" title="Test Case Status" /></p>
+<p>Clicking &quot;All browsers and devices&quot; shows a list of the browsers in the run, which allows filtering to just the results from that browser.</p>
+<p><img src="./images/self-service/all_browsers_and_devices.png?raw=true" alt="all_browsers_and_devices" title="All Browsers and Devices" /></p>
+<p>The pagination controls at the bottom of the panel provide access to further results:</p>
+<p>Clicking on an individual test case provides the summary view for that test case:</p>
+<p><img src="./images/self-service/pr_verify.png?raw=true" alt="pr_verify" title="PR Verify" /></p>
+<p>The browser icons on the left can be clicked to show a summary of the result for that browser.</p>
+<p>Clicking &quot;Results | CI Jobs&quot; will take you to the Looper job for the run, and &quot;Play Recording&quot; will take you to the video recording of the test execution on SauceLabs.</p>
+<p><img src="./images/self-service/results_ci_jobs.png?raw=true" alt="results_ci_jobs" title="Results CI Jobs" /></p>
+<h3>Support</h3>
+<p>The Self Service UI is supported by the DXT team via the <a href="https://jira.walmart.com/servicedesk/customer/portal/1422">service desk</a> and for questions, please see #testautomation on Slack.</p>
+  </div>
+</div>
+
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

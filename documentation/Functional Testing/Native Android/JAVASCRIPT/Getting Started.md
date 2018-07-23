@@ -8,12 +8,9 @@ To proceed with native Android app test, you also need latest [Xcode](https://de
 
 ### Setup
 
-Please use following boilerplate to have Testarmada toolkit installed
+Please follow the archetype project [otto-archetype-app](https://gecgithub01.walmart.com/otto/otto-archetype-app) to have your first native app test automation project run in your local.
 
-```bash
-git clone git@github.com:TestArmada/boilerplate-nightwatch.git
-npm install
-```
+Then please follow the boilerplate project [boilerplate-nightwatch-mobile](https://gecgithub01.walmart.com/otto/boilerplate-nightwatch-mobile) for more examples and advanced usage.
 
 ### Via Command Line Arguments
 
@@ -49,7 +46,7 @@ The hosted test profile file needs to follow the format of
 {
   "profiles": {
     "microsoftedge": [{
-      "browser": "MicrosoftEdge_16_Windows_10_Desktop",
+      "browser": "microsoftedge_14_Windows_10_Desktop",
       "resolution": "1280x1024",
       "executor": "sauce"
     }],
@@ -74,7 +71,7 @@ Or, as a better way to handle multiple test profiles as a batch, you can put mul
 {
   "profiles": {
     "tier-one-browsers": [{
-        "browser": "MicrosoftEdge_16_Windows_10_Desktop",
+        "browser": "microsoftedge_14_Windows_10_Desktop",
         "resolution": "1280x1024",
         "executor": "sauce"
       },

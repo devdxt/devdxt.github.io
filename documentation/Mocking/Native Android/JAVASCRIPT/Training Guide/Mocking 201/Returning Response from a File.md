@@ -21,11 +21,12 @@ shifu.route({
 Mocked directory path is the location to the base directory where all your mocked response file will be stored. This parameter is defined in run-mock-server-console.js file. It is defined at the start of mock server as shown in the code below: 
 ```js
 require('./endpoints-Shifu-201');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
 

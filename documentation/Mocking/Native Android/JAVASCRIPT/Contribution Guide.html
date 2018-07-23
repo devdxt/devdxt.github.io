@@ -127,6 +127,8 @@
     
     
     
+    
+    
       
       
         
@@ -183,6 +185,18 @@
         
           
           
+          
+            
+            <li><a href="/documentation/Mocking/Native Android/JAVASCRIPT/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
+              Boilerplates
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
             
             <li><a href="/documentation/Mocking/Native Android/JAVASCRIPT/Contribution Guide" class="sidebar__file-links sidebar__file-links-current">
               Contribution Guide
@@ -229,7 +243,7 @@
 
 <p>The mocking service uses <code class="highlighter-rouge">shifu-smocks</code> which provides the stateful HTTP mocking service built on top of HAPI. It allows to add routes and different scenarios for each route.</p>
 
-<p>In addition, the mocking service provides certain utilities via <a href="https://github.com/TestArmada/shifu-util">shifu-util</a>. It also provides logging facility with <a href="https://github.com/TestArmada/shifu-logger">shifu-logger</a></p>
+<p>In addition, the mocking service provides certain utilities via <a href="https://gecgithub01.walmart.com/otto/shifu-util">shifu-util</a>. It also provides logging facility with <a href="https://gecgithub01.walmart.com/otto/shifu-logger">shifu-logger</a></p>
 
 <h2 id="mock-server-start-flow">Mock Server Start flow</h2>
 
@@ -241,7 +255,7 @@
 
 <ul>
   <li>
-    <p>Users can specify what routes to mock by specifying them in endpoints.js</p>
+    <p>Users can specify what routes to mock by specifying them in endpoints.js which can look something like <a href="https://gecgithub01.walmart.com/otto/boilerplate-mocking/blob/master/tests/resources/endPoints.js">this</a></p>
   </li>
   <li>
     <p>Shifu’s <code class="highlighter-rouge">start()</code> is invoked with options to start the Shifu server</p>
@@ -299,15 +313,15 @@
 
 <h2 id="git-repository-information">Git repository information</h2>
 
-<p>The source code for all mocking components reside in Github.</p>
+<p>The source code for all mocking components reside in Gec Github.</p>
 
 <ul>
-  <li><a href="https://github.com/TestArmada/shifu">Shifu</a></li>
-  <li><a href="https://github.com/TestArmada/shifu-util">Shifu Util</a></li>
-  <li><a href="https://github.com/TestArmada/shifu-magellan-nightwatch">Shifu Magellan Nightwatch</a></li>
-  <li><a href="https://github.com/TestArmada/shifu-logger">Shifu Logger</a></li>
-  <li><a href="https://github.com/TestArmada/shifu-smocks">Shifu Smocks</a></li>
-  <li><a href="https://github.com/TestArmada/shifu-swagger">Shifu Swagger</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu">Shifu</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu-util">Shifu Util</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu-magellan-nightwatch">Shifu Magellan Nightwatch</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu-logger">Shifu Logger</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu-proxy">Shifu Proxy</a></li>
+  <li><a href="https://gecgithub01.walmart.com/otto/shifu-swagger">Shifu Swagger</a></li>
 </ul>
 
 <h2 id="development-process">Development process</h2>
@@ -316,10 +330,7 @@
 
 <ol>
   <li>
-    <p>Fork the repository https://github.com/TestArmada/shifu. If your Github username is “abc” for e.g, your forked repository will be https://github.com/abc/shifu.</p>
-  </li>
-  <li>
-    <p>Clone this forked repository using <code class="highlighter-rouge">git clone https://github.com/&lt;username&gt;/shifu.git</code> and make “shifu” your working directory.</p>
+    <p><code class="highlighter-rouge">git clone git@gecgithub01.walmart.com:otto/shifu.git</code></p>
   </li>
   <li>
     <p>Create a branch on local with <code class="highlighter-rouge">git checkout -b &lt;your branch name&gt;</code>. <strong>Note</strong> The default branch for all projects is <code class="highlighter-rouge">development</code> so any branch you create will be off the <code class="highlighter-rouge">development</code> branch.</p>
@@ -328,16 +339,16 @@
     <p>Install dependencies using <code class="highlighter-rouge">npm install</code>.</p>
   </li>
   <li>
-    <p>Make the code changes in the branch you created in step (3) and write / update the unit tests to verify your changes. Run unit tests using <code class="highlighter-rouge">npm test</code>. We use <code class="highlighter-rouge">eslint</code> to ensure code formatting. This step runs both unit tests as well as verifies code formatting. We use <code class="highlighter-rouge">istanbul</code> for code coverage reporting. <strong>95%</strong> is the minimum code coverage we expect for all our components.</p>
+    <p>Make the code changes in the branch you created in step (2) and write / update the unit tests to verify your changes. Run unit tests using <code class="highlighter-rouge">npm test</code>. We use <code class="highlighter-rouge">eslint</code> to ensure code formatting. This step runs both unit tests as well as verifies code formatting. We use <code class="highlighter-rouge">istanbul</code> for code coverage reporting. <strong>95%</strong> is the minimum code coverage we expect for all our components.</p>
   </li>
   <li>
-    <p>Once you’re ready, submit your pull request from your branch against the <code class="highlighter-rouge">development</code> branch of Shifu (https://github.com/TestArmada/shifu/tree/development). The PR triggers a <a href="https://travis-ci.org/TestArmada/shifu">Travis build</a> which runs the tests in CI environment (same steps as in (5) above).</p>
+    <p>Once you’re ready, submit your pull request against the <code class="highlighter-rouge">development</code> branch. The Looper build triggers a <a href="https://ci.electrode.walmart.com/job/shifu/job/PR Verify/">PR Verify build</a> which runs the tests in CI environment (same steps as in (4) above).</p>
   </li>
   <li>
-    <p>Once the PR is reviewed, a team member merges the PR into the <code class="highlighter-rouge">development</code> branch.</p>
+    <p>Once the PR is reviewed , a team member merges the PR into the <code class="highlighter-rouge">development</code> branch.</p>
   </li>
   <li>
-    <p>When the <code class="highlighter-rouge">development</code> branch is merged to <code class="highlighter-rouge">master</code>, a team member will push a tag to <code class="highlighter-rouge">master</code>, a <a href="https://travis-ci.org/TestArmada/shifu">Travis build</a> is triggered and publishes a new version of the package to <code class="highlighter-rouge">npm</code> registry.</p>
+    <p>When the <code class="highlighter-rouge">development</code> branch is merged to <code class="highlighter-rouge">master</code>, the <a href="https://ci.electrode.walmart.com/job/shifu/job/Master Verify/">Master Verify build</a> is triggered and publishes a new version of the package to Walmart’s <code class="highlighter-rouge">npm</code> registry.</p>
   </li>
 </ol>
 

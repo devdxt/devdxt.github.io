@@ -161,16 +161,22 @@
         &quot;browser&quot;: &quot;Android_GoogleAPI_Emulator_Android_7_1_Android&quot;,
         &quot;orientation&quot;: &quot;portrait&quot;,
         &quot;appium&quot;: {
-          &quot;app&quot;: &quot;sauce-storage:AUT.apk&quot;,
+          &quot;app&quot;: &quot;sauce-storage:Walmart_app.apk&quot;,
           &quot;platformName&quot;: &quot;Android&quot;,
           &quot;appiumVersion&quot;: &quot;1.7.2&quot;,
           &quot;fullReset&quot;: &quot;true&quot;,
           &quot;noReset&quot;: &quot;false&quot;,
-          &quot;appActivity&quot;: &quot;com.yourcompany.android.main.MainActivity&quot;,
-          &quot;appWaitActivity&quot;: &quot;com.yourcompany.android.main.AnotherActivity&quot;
+          &quot;appActivity&quot;: &quot;com.walmart.android.app.main.MainActivity&quot;,
+          &quot;appWaitActivity&quot;: &quot;com.walmart.android.app.main.HomeActivity&quot;
         }
       }
     ],
+</code></pre>
+<h3>Quiz</h3>
+<p>Can you create a Desired Capability to using the mocked Android app?</p>
+<p><strong>Hint:</strong>
+You should add this parameter in:</p>
+<pre><code class="language-bash">&quot;optionalIntentArguments&quot;: &quot;-e automation.extra.service.PROFILE 'stage' -e automation.extra.service.CONFIG '[{\&quot;services\&quot;:[\&quot;quimby\&quot;,\&quot;receiptsQuery\&quot;,\&quot;receiptsLegacy\&quot;,\&quot;hapi\&quot;,\&quot;mobile\&quot;,\&quot;moneyServices\&quot;,\&quot;pay\&quot;,\&quot;pharmacy\&quot;,\&quot;pickup\&quot;,\&quot;pin\&quot;,\&quot;purchaseHistory\&quot;,\&quot;savingsCatcherQuery\&quot;,\&quot;savingsCatcher\&quot;,\&quot;storeLocator\&quot;,\&quot;endlessAisle\&quot;,\&quot;www\&quot;,\&quot;pie\&quot;],\&quot;host\&quot;:\&quot;10.0.2.2:12000\&quot;,\&quot;isHttp\&quot;:true},{\&quot;services\&quot;:[\&quot;tfGraphql\&quot;],\&quot;host\&quot;:\&quot;https://10.0.2.2:12000/terra-firma/graphql\&quot;, \&quot;isHttp\&quot;:true}]'&quot;,
 </code></pre>
 </div>
 <div class="training-doc-nav-btn">

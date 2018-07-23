@@ -141,7 +141,7 @@
 <div class="training-doc-nav-btn">
 </div>
 <div class="training-content markdown">
-<p>Most of you must already know some about web automation. In this training series, we will show you how to leverage Test Armada tools to make end-to-end tests easy, reliable, and massively parallel distributing tests across available resources both locally and remotely.</p>
+<p>Most of you must already know some about web automation. In this training series, we will show you how to leverage OTTO tools to make end-to-end tests easy, reliable, and massively parallel distributing tests across available resources both locally and remotely, to achieve Walmart scale.</p>
 <h3>Prerequisites</h3>
 <ol>
 <li>Hostname mapping and open certain ports</li>
@@ -155,26 +155,34 @@
 <li>Demo test will use ports range [12000, 12010], please make sure your machine allows those ports</li>
 </ul>
 <ol start="2">
-<li>Install <a href="https://github.com/creationix/nvm">nvm</a>
-We recommend using <strong>nvm</strong> to manage your node and npm version. The sample project recommends <strong>node@6.11.2</strong> and above,  <strong>npm@3.10.10</strong> and above.</li>
+<li><p>Install <a href="https://nodejs.org/en/download/">Node.js</a> and <strong>NPM</strong> (npm is distributed with <a href="https://nodejs.org/"><strong>Node.js</strong></a>- which means that when you download Node.js, you automatically get npm installed on your computer)</p></li>
+<li><p>Install <a href="https://github.com/creationix/nvm">nvm</a>
+We recommend using <strong>nvm</strong> to manage your node and npm version. The sample project recommends <strong>node@6.11.2</strong> and above,  <strong>npm@3.10.10</strong> and above.</p></li>
 </ol>
 <pre><code class="language-bash">nvm install 6.11.2
 nvm use 6.11.2
 </code></pre>
-<ol start="3">
+<ol start="4">
+<li><p>Install <a href="https://github.com/FormidableLabs/builder-init">builder-init</a></p>
+<p>The sample project relies on FormidableLabs' <a href="https://github.com/FormidableLabs/builder">builder</a>. Please make sure you have <code>builder-init</code> npm installed.</p></li>
+</ol>
+<pre><code class="language-bash">npm install builder-init
+</code></pre>
+<ol start="5">
 <li><p>Apply <a href="saucelabs.com">SauceLabs</a> credentials (username and api-key)</p>
 <p>The demo tests can be executed on SauceLabs. To use it, please make sure you have:</p></li>
 </ol>
 <ul>
-<li>SauceLabs account</li>
+<li>SauceLabs account. Click <a href="http://qm.otto.walmartlabs.com:8080">here</a> to apply.</li>
 <li>Have the following credentials set up in <strong>~/.bashrc</strong> file</li>
 </ul>
 <pre><code class="language-bash">export SAUCE_CONNECT_VERSION=4.4.11
 export SAUCE_USERNAME=${YOUR_SAUCE_NAME}
 export SAUCE_ACCESS_KEY=${YOUR_SAUCE_API_TOKEN}
 </code></pre>
-<ol start="4">
-<li>Install <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> browser, if you don't have it yet</li>
+<ol start="6">
+<li><p>Install <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> browser, if you don't have it yet</p></li>
+<li><p>To get the Walmart internal npm packages, you need to follow the steps: https://sde.walmart.com/docs/proximity/npm.html#downloading-packages</p></li>
 </ol>
 </div>
 <div class="training-doc-nav-btn">

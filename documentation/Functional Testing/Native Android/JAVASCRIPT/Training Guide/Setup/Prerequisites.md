@@ -18,10 +18,11 @@ New to Android app automation testing? No worry, you don’t need to know much t
   * Select Nougat x86_64 Android 7.1.1 (Google APIs) (download may be required), and click Next
   * Set AVD Name as **a71_API_25**, and click Finish
 
-- Install Node.js >= v4.x.x 
-- Install [npm](http://nodejs.org/). Check that you have at least **npm** version 3 or above (required by *appium@1.7.x*):
+- Install [Node.js](https://nodejs.org/en/download/) and **NPM** (npm is distributed with [**Node.js**](https://nodejs.org/)- which means that when you download Node.js, you automatically get npm installed on your computer)
+- Check that you have at least **npm** version 3 or above (required by *appium@1.7.x*):
 ```bash
 $ npm --version
 # If not, install npm3
 $ npm install -g npm@3
 ```
+- To get the Walmart internal npm packages, you need to follow the steps: https://sde.walmart.com/docs/proximity/npm.html#downloading-packages

@@ -143,6 +143,16 @@
 </div>
 <div class="training-content markdown">
 <h2>Tests framework structure</h2>
+<h3>Recommend practice is <strong>Page Objects Model</strong> Design Pattern.</h3>
+<p>In our sample boilerplate:</p>
+<ol>
+<li>Command parameter <strong>--test tests/app-android.test.js</strong> executes test in <strong>app-android.test.js</strong> file.</li>
+<li><strong>Tests</strong> are defined in <strong>.js</strong> files under <strong>.tests/</strong> folder, each file is a test.</li>
+<li>Locators and function commands are grouped by page/screen, and are put in <strong>./lib/pages/device/</strong> folder
+E.g in <strong>app-android.test.js</strong>, the signin() step would require elements and commands that are defined in <strong>./lib/pages/android/home.js</strong> file.</li>
+<li>Profiles that are used to execute tests in remote, e.g. SauceLabs, are defined in magellan.json fine.</li>
+<li>Local browsers are defined in nightwatch.json file, they are used for local emulator tests, and they are not supported in profiles.</li>
+</ol>
 <h3>Where to find mobile commands and assertions</h3>
 <ol>
 <li>When look at commands in page files, e.g. <strong>clickMobileEl()</strong> may look new to you. Those mobile commands are defined in <strong><em>./node_modules/testarmada-nightwatch-extra/lib/commands/mobile</em></strong></li>
@@ -164,6 +174,13 @@
     &quot;./lib/custom_commands&quot;
   ],
 </code></pre>
+<h3>Quiz</h3>
+<p>Please create new signin test, same as the one in app-android.test.js file, and make the test using the mocked Walmart Android app.</p>
+<p><strong>Hint:</strong></p>
+<ul>
+<li>use local_browser &quot;appiumandroidappmock&quot;</li>
+<li>Need to update the assert text msg, e.g. in line 31 in app-android.test.js file</li>
+</ul>
 </div>
 <div class="training-doc-nav-btn">
 </div>

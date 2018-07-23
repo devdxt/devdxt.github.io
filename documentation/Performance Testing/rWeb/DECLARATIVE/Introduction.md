@@ -2,9 +2,9 @@
 
 As a front end engineer, performance of your application becomes an essential measurement for your application to succeed. With evolving technologies and user-centric apps, it becomes very important to measure performance of your app before it gets released.  This is where our tool can help you to measure the performance of the app at every phase of your release cycles.
 
-## The performance measurement tool
+## The performace measurement tool
 
-The client side performance measurement tool is based on Sitespeed and is currently serving Web and mWeb interfaces. We have plans to roll out client side performance testing for native apps (android and iOS) soon.
+The OTTO's client side performance measurement tool is based on Sitespeed and is currently serving Web and mWeb interfaces. We have plans to roll out client side performance testing for native apps (android and iOS) soon.
 
 Our test runner is a self-service solution for performance monitoring that could be easily and seamlessly integrated into the software development lifecycle (SDLC).
 
@@ -53,7 +53,7 @@ At a very high level, system architecture:
 
 ## Metrics collected
 
-Our performance tool collects metrics from the browser API via [sitespeed.io](https://www.sitespeed.io). Most of the browsers have a performance API which can be used to capture the performance measurements of an app. Sitespeed.io captures these metrics and provides a metric data which is then transformed into a readable data. 
+Our performace tool collects metrics from the browser API via [sitespeed.io](https://www.sitespeed.io). Most of the browsers have a performance API which can be used to capture the performance measurements of an app. Sitespeed.io captures these metrics and provides a metric data which is then transformed into a readable data. 
 
 **Navigation API:**
 - responseTime (TTFB)
@@ -101,7 +101,22 @@ Our performance tool collects metrics from the browser API via [sitespeed.io](ht
 - number of domains
 - last modified stats
 
-## Planned features
+ # Planned Features
 
+- Looper integration
 - mweb support
 - native support
+
+# Customers
+
+- R-Discovery/Homepage
+- R-Discovery/EasyReOrder
+- R-Discovery/Collections
+- R-Discovery/Product
+- R-Discovery/Non-Config
+- R-User/Account
+- R-User/Login
+- R-CAT/Topic
+- R-search-category/category
+- R-Transaction/Cart
+- R-Transaction/Checkout

@@ -14,7 +14,7 @@ performance reports to assess the results as they are reported.
 The less time developers waste waiting for test data to be available, the more productive
 those developers are - and the better their workflow is. What results is an improved
 experience for developers in the organization, and - through improved application quality
-that comes from these insights - a greatly improved experience for the customer.
+that comes from these insights - a greatly improved experience for the Walmart customer.
 
 ## Dashboard
 

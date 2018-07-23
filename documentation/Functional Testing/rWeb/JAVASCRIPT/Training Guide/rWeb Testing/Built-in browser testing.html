@@ -151,14 +151,37 @@
 <h3>Built-in browser testing</h3>
 <ul>
 <li>The sample project has some pre-configured browsers that you can use via <code>--local_browser</code> command.</li>
-<li>For example, the following command triggers your test in the local Chrome.</li>
+<li>For example, the following command triggers your test in the local Firefox.</li>
 </ul>
-<pre><code class="language-bash">DPRO=local ./node_modules/.bin/magellan  --local_browser chrome  --test tests/demo-simple.js --serial --max_test_attempts 1
+<pre><code class="language-bash">HOST=dev.walmart.com MOCK_PORT=12000 DPRO_LOCATION=./test/automation/conf/data ./node_modules/.bin/magellan --nightwatch_config ./test/automation/conf/nightwatch.json --config ./test/automation/magellan.json --local_browser firefox
 </code></pre>
 <ul>
-<li>Full list of built in browser can be found at <strong><em>test_settings</em></strong> part in <strong>conf/nightwatch.json</strong> file</li>
+<li>Full list of built in browser can be found at <strong><em>test_settings</em></strong> part in <strong>test/automation/conf/nightwatch.json</strong> file</li>
 <li>To run test with a <strong>new browser</strong>, you can just create a new entry in <strong>test_settings</strong> part</li>
 </ul>
+<h4>Quiz</h4>
+<ul>
+<li>Can you make the sample test run on your local simulator's safari browser?</li>
+<li>Hint: here's the sample Capability:</li>
+</ul>
+<pre><code class="language-bash">    &quot;appiummweb&quot;: {
+      &quot;desiredCapabilities&quot;: {
+        &quot;browserName&quot;: &quot;safari&quot;,
+        &quot;appiumVersion&quot;: &quot;1.7.2&quot;,
+        &quot;automationName&quot;: &quot;xcuitest&quot;,
+        &quot;platformName&quot;: &quot;iOS&quot;,
+        &quot;platformVersion&quot;: &quot;11.2&quot;,
+        &quot;deviceName&quot;: &quot;iPhone 8&quot;,
+        &quot;waitForAppScript&quot;: &quot;true&quot;
+      },
+      &quot;selenium&quot;: {
+        &quot;start_process&quot;: false
+      },
+      &quot;appium&quot;: {
+        &quot;start_process&quot;: true
+      }
+   },
+</code></pre>
 </div>
 <div class="training-doc-nav-btn">
 <a href="./Remote browser testing"><img src="/images/training/btn-right.png" srcset="/images/training/btn-right%402x.png 2x, /images/training/btn-right%403x.png 3x" /></a>

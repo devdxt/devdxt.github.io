@@ -1,19 +1,20 @@
 ### 1. Pre-requisites
 
 - node.js 4+ (npm is included in the package)
+- If inside of Walmart you need npm access to the [internal nexus/npm repo](https://sde.walmart.com/docs/proximity/npm.html)
 
 ### 2. Add mock dependency to `package.json`
 
 ```json
 "dependencies": {
-  "shifu": "^1.0.0"
+  "@walmart/shifu": "^3.0.4"
 }
 ```
 
 ### 3. Add `.npmrc` file to the project
 
 ```bash
-registry=https://registry.npmjs.org/
+registry=https://npme.walmart.com/
 strict-ssl=false
 ```
 
@@ -25,11 +26,12 @@ Run `npm install` command to install mock related dependencies.
 
 ```js
 require('./endpoints');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
 
@@ -37,14 +39,15 @@ require('shifu').start({
 
 ```js
 require('./endpoints');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
-Please note that you will need to replace `HelloShifu` for key `project` field with your project name(without dashes).
+Please note that you will need to replace `HelloShifu` for key `project` field with your project name(without dashes). Once you add that, you will be able to see the [usage statistics for your project](https://prod.rapido.walmart.com/dashboard/db/shifu-usage) under your project. If you don't have access to this dashboard, please [file a ticket](https://jira.walmart.com/servicedesk/customer/portal/1403).
 
 ### 7. Add script to start mock server in `package.json`
 

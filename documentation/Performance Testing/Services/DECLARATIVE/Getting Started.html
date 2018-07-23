@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		  <div class="clear"></div>
+<div class="doc-container">
+  <div class="breadcrumb doc-breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <a class="breadcrumb__link" href="/Performance Testing/">Performance Testing</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <span class="breadcrumb__current-page">Services DECLARATIVE</span>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="sidebar">
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Introduction" class="sidebar__file-links">
+              Introduction
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Getting Started" class="sidebar__file-links sidebar__file-links-current">
+              Getting Started
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/FAQs" class="sidebar__file-links">
+              FAQs
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Best Practices" class="sidebar__file-links">
+              Best Practices
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Upcoming Features" class="sidebar__file-links">
+              Upcoming Features
+            </a></li>
+            
+          
+        
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+  </div>
+  <div class="doc-content markdown">
+    <h3 id="jmeter-test-plan-creation-steps"><strong>JMeter Test Plan creation steps</strong></h3>
+
+<ol>
+  <li>Download the customized version of jmeter from <a href="http://gec-maven-nexus.walmart.com/content/repositories/pangaea_releases/otto/nextgen/nextgenjmeter/nextgenplatformjmeter/">getLatestVersionOfJmeter</a>.</li>
+  <li>Add the Thread Group where you can specify number of threads, rampup time and test duration.</li>
+  <li>Add HTTP sampler request for every request and CSV data config element for test data set up</li>
+  <li>Add Timers if you want to introduce think times between each transaction.</li>
+  <li>Add KafkaBackendListener to stream all test results into the Data Insights module. This custom JMeter plugin is bundled into the custom JMeter downloaded in step 1 above. Follow these steps to add the Kafka Listener.<br />
+a.	Click on testplan–&gt;Add–&gt;Listener–&gt;Backend Listener. <br />
+b.	Select kafkaplugin.KafkabackendListenerClient from the drop down list in Backend Listener Implementation.<br />
+c.	Update summaryOnly parameter to false.<br />
+<img src="images/KafkaPlugin.png" alt="" /></li>
+  <li>Save the JMX. <br /></li>
+  <li>The test plan should not have other Listeners to generate reports like Aggregate Report, Summary Report. These listeners are resource intensive and can significantly impact the load generation capabilities for the test agent machine. <br /></li>
+</ol>
+
+<h3 id="easy-onboarding-tips"><strong>Easy Onboarding Tips</strong></h3>
+<ol>
+  <li>Before creating TestPlan on TestArmada.,ensure that user:<b>SVCgecfeops</b> is added to your GitHub project repo as Collaborators. <br /></li>
+  <li>Ensure that your tests and their artifacts are structured as shown below:</li>
+</ol>
+
+<p><img src="images/FolderStructure.png" alt="" />
+<br />
+Do note that the folders are named as per type of performance test. If your project is onboarded on the self service portal, creating new tests is as simple as entering the folder name of your new test</p>
+
+<h3 id="results-dashboard"><strong>Results Dashboard</strong></h3>
+<ol>
+  <li>Response Time trend: This would give me average response time for all the transaction. <br />
+<img src="images/ResponseTimeTrend.png" alt="" /> <br /></li>
+  <li>Comparison of percentage distribution of successful transaction v/s failed transactions.”ok” represents successful and “ko” represents failed. <br />
+<img src="images/PercentageDistributionOfTransactions1.png" alt="" /> <br /></li>
+  <li>Transaction Rate: Trend rate comparison between successful and failed transaction. <br />
+<img src="images/TransactionRate.png" alt="" /> <br /></li>
+  <li>Response Throughput: Trend of network throughput for various transaction. <br />
+<img src="images/ResponseTimeThroughput.png" alt="" /> <br /></li>
+  <li>Hits/sec or Transaction/sec(TPS):Trend of transactions per sec for various transactions. <br />
+<img src="images/HitsPerSec.png" alt="" /></li>
+</ol>
+
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var elements = document.getElementsByClassName('highlight');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].className += " line-numbers";
+    if (!elements[i].parentElement.classList.value.match(/language/)) {
+      elements[i].children[0].className = "language-javascript";
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/prism.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/doc.js"></script>
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

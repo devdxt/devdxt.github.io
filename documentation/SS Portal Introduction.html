@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="inner-container">
+  <div class="breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png" srcset="/images/arrow-right-icon%402x.png 2x,
+                   /images/arrow-right-icon%403x.png 3x" class="arrow-right-icon" />
+      <span class="breadcrumb__current-page">SS Portal Introduction</span>
+    </p>
+  </div>
+  <div class="accordion-content custom-page-content">
+<h2>Introduction</h2>
+<p>The Self-Service Portal (S.S. Portal) is a UI tool enabling developers to setup and execute functional, frontend and backend performance test projects with a few clicks. The tool also provides data insights offering real-time and trending reports giving you the power to troubleshoot and debug issues on demand and monitor the health of your test suite.</p>
+<p>Check out a short demo video of our tool:</p>
+<ul>
+<li><p>S.S. Portal Functional Test Setup Walkthrough</p>
+<p><a href="https://walmartglobal.box.com/s/jzpsej8ko1tna7tkwjqm4gyquxirp554"><img src="./images/self-service/Test-Plan-Setup.png" alt="Test Plan Setup" /></a></p></li>
+<li><p>S.S. Portal Data Insights Walkthrough</p>
+<p><a href="https://walmartglobal.box.com/s/uv9x8yy4r2bqcqpiszioha1hzu361c72"><img src="./images/self-service/Reporting.png" alt="Reporting" /></a></p></li>
+</ul>
+<h3>S.S. Portal On-boarding Instructions</h3>
+<p>On-boarding to the new platform could not be easier.</p>
+<ul>
+<li><p>For Existing Customers on Test Armada and Looper: DXT will migrate your project data and created a PR with simple configuration change to your existing Looper yml file. So, to take advantage of the new self-service portal, you simply need to review and merge the PR.</p>
+<blockquote>
+<p><strong>Please note</strong>: You will continue to have access for existing Admiral portal along with S. S. Portal in parallel.</p>
+</blockquote></li>
+<li><p>For New Customers or Customer that have an existing Looper Job: Due to popular demand, we are monitoring access to the portal in Q2. If you are interested in taking the UI for a test drive, please contact us at</p>
+<ul>
+<li>Slack Channel: #testautomation</li>
+<li>File a ticket at our <a href="https://jira.walmart.com/servicedesk/customer/portal/1422">service desk</a> and someone will respond to your request</li>
+</ul></li>
+</ul>
+<h3>Support</h3>
+<p>With any new release, we know there will be a few bumps. However, we are here to support you with any issue or problem you make encounter. Below are a few resources to help with your on-boarding process:</p>
+<p>Self-Service Help</p>
+<ul>
+<li>S.S. Portal <a href="./SS%20Portal%20Getting%20Started">Getting Started Guide</a></li>
+<li><a href="/Functional%20Testing/">Documentation</a> outlining TDK usage, API references, training, and FAQs</li>
+</ul>
+<p>On-Call Support</p>
+<ul>
+<li>Please find our on-call support information on the <a href="http://testarmada.walmartlabs.com/contact">contact</a> page.</li>
+</ul>
+<p>In addition, we will be hosting office open hours between 11 am-Noon on the following days to help address any questions you have in real-time:</p>
+<ul>
+<li>Thursday, June 21st, 2018</li>
+<li>Thursday, June 28th, 2018</li>
+<li>Thursday, July 5th, 2018</li>
+<li>Thursday, July 12th, 2018</li>
+</ul>
+<p><a href="https://walmart.zoom.us/j/279803456">Here</a> is link to Zoom conference call for above office hours meeting series.</p>
+  </div>
+</div>
+
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		  <div class="clear"></div>
+<div class="doc-container">
+  <div class="breadcrumb doc-breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <a class="breadcrumb__link" href="/Performance Testing/">Performance Testing</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <span class="breadcrumb__current-page">rWeb DECLARATIVE</span>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="sidebar">
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Introduction" class="sidebar__file-links">
+              Introduction
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Getting Started" class="sidebar__file-links">
+              Getting Started
+            </a></li>
+            
+          
+        
+      
+        
+          
+            
+            
+              <li class="sidebar__file-links">Developer Guide</li>
+            
+          
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
+              Boilerplates
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Contribution Guide" class="sidebar__file-links sidebar__file-links-current">
+              Contribution Guide
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/FAQ" class="sidebar__file-links">
+              FAQ
+            </a></li>
+            
+          
+        
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+  </div>
+  <div class="doc-content markdown">
+    <p>You are welcome to contribute to our repo. Our main repos are :</p>
+
+<ul>
+  <li>https://gecgithub01.walmart.com/rapido/operaio</li>
+  <li>https://gecgithub01.walmart.com/rapido/plugin-sitespeed  (captures the data from sitespeed and saves it in kairos db)</li>
+  <li>https://gecgithub01.walmart.com/rapido/annesso (transforms the sitespeed.io result data to be kairos compatible)</li>
+</ul>
+
+<p>Below is the architecture of how the components of rapido interact with each other:</p>
+
+<p><img src="./images/rapido_arch_contribute.png" alt="architecture" /></p>
+
+<h2 id="understanding-rapido-process-flow-in-jenkins">Understanding Rapido Process Flow in Jenkins:</h2>
+<p>. A Jenkins job is triggered by a change in the application’s repository :</p>
+<ul>
+  <li>That job can only run in a specific set of slaves, provisioned to run performance jobs;</li>
+  <li>These slaves are OneOps VMs that include Docker engine, a command line tool named <a href="https://gecgithub01.walmart.com/rapido/operaio">operaio</a> and the following Docker images:
+    <ul>
+      <li><a href="https://gecgithub01.walmart.com/rapido/pilot/blob/extended/docker/electrode-app-builder/Dockerfile">electrode-app-builder</a>;</li>
+      <li><a href="https://gecgithub01.walmart.com/rapido/pilot/blob/extended/docker/otto-mock-server/Dockerfile">otto-mock-server</a>: runs the mocking server from the source stored in a given volume;</li>
+      <li><a href="https://gecgithub01.walmart.com/rapido/pilot/blob/extended/docker/electrode-app/Dockerfile">electrode-app</a>: runs the application from the source stored in a given volume;</li>
+      <li><a href="https://hub.docker.com/r/sitespeedio/sitespeed.io/builds/bwtaeag2jnxi2xk3urfg3tj/">sitespeed.io</a>: measures application performance;
+      1. <strong>operaio</strong> takes a few arguments from the Jenkins jobs and automates the performance measurement workflow; 
+      1. A Docker container is started from an <strong>electrode-app-builder</strong> image, where:
+        1. Application source is pulled from GitHub;
+        1. Dependencies are installed via <code class="highlighter-rouge">npm install</code>;
+        1. Application is built via command provided by app team. As an example <code class="highlighter-rouge">NODE_ENV=production npm run build</code>;
+        1. Result is made available to specified volume;
+      1. A Docker container is started from an <strong>otto-mock-server</strong> image, where the mock server is started via <code class="highlighter-rouge">npm run mock-server</code>;
+      1. A Docker container is started from an <strong>electrode-app</strong> image, where:
+        1. Environment variables tell the application to run optimized code against mocked services, example:</li>
+      <li><code class="highlighter-rouge">NODE_ENV=production</code></li>
+      <li><code class="highlighter-rouge">NODE_APP_INSTANCE=mock</code>
+        1. The host <strong>dev.walmart.com</strong> is mapped to <strong>otto-mock-server</strong>’s IP;
+        1. Application is started command provided by app team. As an example,  <code class="highlighter-rouge">node server/index.js</code> or <code class="highlighter-rouge">npm run start</code>
+      1. A Docker container is started from a <strong>sitespeed.io</strong> image, which uses Chrome browser to measure performance from the <strong>electrode-app</strong> container;
+      1. The collected metrics are forwared to a KairosDB cluster, which is backed by a Cassandra cluster;
+      1. The collected HAR files are stored into the Cassandra cluster;
+      1. The <strong>sitespeed.io</strong> container stops and cleans up;
+      1. Other containers are stopped and cleaned-up:</li>
+    </ul>
+  </li>
+  <li>electrode-app;</li>
+  <li>otto-mock-server;</li>
+  <li>electrode-app-builder;
+    <ol>
+      <li>Job stops and Jenkins slave is freed-up;</li>
+      <li>The results can visualized from a Grafana dashboards hosted at https://prod.rapido.walmart.com/;</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="our-main-modules-where-you-can-contribute-">Our main modules where you can contribute :</h3>
+<ul>
+  <li>
+    <p><em>Operaio</em> (https://gecgithub01.walmart.com/rapido/operaio) - This is the runner of the performance tests. It basically starts all the docker containers : electrode-app-builder, electrode-app, otto-mock-server and sitespeed.io to run the performance tests and deliver the test resuls to the kairos db.  If you need to change the way process runs, please contribute to this project.</p>
+  </li>
+  <li>
+    <p><em>Plugin-sitespeed</em> (https://gecgithub01.walmart.com/rapido/plugin-sitespeed) - This is the module which captures the data from sitespeed.io and passes it along to <em>annesso</em> module to transform the data and publish it to the Kairos db</p>
+  </li>
+  <li>
+    <p><em>Annsesso</em>  (https://gecgithub01.walmart.com/rapido/annesso)  - This is the module which transforms the sitespeed results data and does a POST to Kairos db to publish the data.</p>
+  </li>
+</ul>
+
+<p>Contributors are encouraged to make changes and write test cases for any new functionality introduced.</p>
+
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var elements = document.getElementsByClassName('highlight');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].className += " line-numbers";
+    if (!elements[i].parentElement.classList.value.match(/language/)) {
+      elements[i].children[0].className = "language-javascript";
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/prism.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/doc.js"></script>
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

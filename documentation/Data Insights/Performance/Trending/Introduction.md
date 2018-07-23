@@ -14,7 +14,7 @@ effort to continue improvements to performance, or fix degradations.
 Performance is one the most impacting factors on the customer experience, and can be very
 difficult to diagnose when problems arise. By providing reliable, simple access to the data
 from performance testing, the developer benefits from increased knowledge of potential
-issues without friction and the customer gets an enhanced experience.
+issues without friction and the Walmart customer gets an enhanced experience.
 
 ## Dashboard
 

@@ -4,14 +4,15 @@
 ```js
 require('./endpoints');
 var fs = require('fs');
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
  
 shifu.start({
   host: "localhost",  
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
   httpsPort: 4444,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 ```
 > The default port for HTTPS is `4444`

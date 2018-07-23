@@ -179,6 +179,18 @@
         
           
           
+          
+            
+            <li><a href="/documentation/Mocking/rWeb/JAVASCRIPT/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
+              Boilerplates
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
             
             <li><a href="/documentation/Mocking/rWeb/JAVASCRIPT/Contribution Guide" class="sidebar__file-links">
               Contribution Guide
@@ -240,6 +252,7 @@ the actual back end service and add a mocked route in the file containing mocked
 <h2 id="what-are-the-pre-requisites">What Are The Pre-Requisites?</h2>
 <ul>
   <li>node.js 4+ (npm is included in the package)</li>
+  <li>If inside of Walmart you need npm access to the internal <a href="https://confluence.walmart.com/display/PGPTOOLS/NPM+and+Nexus">nexus/npm repo</a></li>
 </ul>
 
 <p><br /></p>
@@ -247,7 +260,7 @@ the actual back end service and add a mocked route in the file containing mocked
 <h2 id="how-can-i-add-mock-server-dependency-to-my-node-project">How Can I Add Mock Server Dependency To My Node Project?</h2>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
-  <span class="s2">"shifu"</span><span class="err">:</span> <span class="s2">"1.0.0"</span> <span class="c1">// add the latest version</span>
+  <span class="s2">"@walmart/shifu"</span><span class="err">:</span> <span class="s2">"3.0.4"</span> <span class="c1">// add the latest version</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -297,7 +310,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 <h2 id="how-to-read-dynamic-urls-in-request">How To Read Dynamic URLs In Request?</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
   <span class="na">path</span><span class="p">:</span> <span class="s1">'/get/customerInfo/{customerid}/{zipcode}'</span>
   <span class="na">handler</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">{</span> 
@@ -313,7 +326,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 <h2 id="how-to-read-header-parameters-in-request">How To Read Header Parameters In Request?</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
   <span class="na">path</span><span class="p">:</span> <span class="s1">'/api/getCart'</span>
   <span class="na">handler</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">{</span>
@@ -332,7 +345,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 <h2 id="how-to-read-payload-in-request">How To Read Payload In Request?</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
   <span class="na">path</span><span class="p">:</span> <span class="s1">'/api/getCart'</span>
   <span class="na">handler</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">{</span>
@@ -348,7 +361,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 <h2 id="how-to-read-query-parameters-in-request">How To Read Query Parameters In Request?</h2>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
   <span class="na">path</span><span class="p">:</span> <span class="s1">'/api/getCart'</span>
   <span class="na">handler</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">{</span>
@@ -366,7 +379,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 <p>To read the dynamic URL parameters in request with in the route, use <code class="highlighter-rouge">request.params</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
 shifu.route({
   path: '/api/customer/{id}'
   handler: function(req, reply) {
@@ -378,7 +391,8 @@ shifu.route({
 </div>
 
 <p><br /></p>
-<h2 id="how-to-add-delay-to-response-">How to add delay to response ?</h2>
+
+<h2 id="how-to-add-delay-to-response">How to add delay to response?</h2>
 
 <p>A mocked response can also be delayed by some time specified by the user. You can simulate a delay (in ms) by passing delay as follows :</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>shifu.route({
@@ -680,11 +694,12 @@ shifu.route({
 <p>Mocked directory path is the location to the base directory where all your mocked response file will be stored. This parameter is defined in run-mock-server-console.js file. It is defined at the start of mock server as shown in the code below:</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'./endpoints'</span><span class="p">);</span>
-<span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">).</span><span class="nx">start</span><span class="p">({</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">).</span><span class="nx">start</span><span class="p">({</span>
   <span class="na">host</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
   <span class="na">mockedDirectory</span><span class="p">:</span> <span class="s2">"./resources/mocked-data"</span><span class="p">,</span>
   <span class="na">port</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span>
-  <span class="na">project</span><span class="p">:</span> <span class="s1">'HelloShifu'</span>
+  <span class="na">project</span><span class="p">:</span> <span class="s1">'HelloShifu'</span><span class="p">,</span>
+  <span class="na">metricsDB</span><span class="p">:</span> <span class="s1">'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'</span>
 <span class="p">});</span>
 </code></pre>
 </div>
@@ -814,6 +829,11 @@ curl http://localhost:8000/shifu/api/registerSession
 
 <p><br /></p>
 
+<h2 id="can-i-reset-all-variants-for-all-the-routes">Can I reset all variants for all the routes?</h2>
+<p>Yes. Please refer <a href="/documentation/Mocking/rWeb/JAVASCRIPT/API%20Guide#reset-all-variants---resetallvariants">resetAllVariants</a> in API guide section.</p>
+
+<p><br /></p>
+
 <h2 id="what-is-mock-server-ui-used-for">What Is Mock Server UI Used For?</h2>
 <p>UI can be used to view and test mocked routes as well as for manual switching of variants when running tests manually.</p>
 
@@ -834,13 +854,14 @@ curl http://localhost:8000/shifu/api/registerSession
 <p>Add <code class="highlighter-rouge">sessions</code> parameter with number of virtual services you want as shown in below example while startung mock Server.</p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'./endpoints'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
   <span class="na">host</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
   <span class="na">mockedDirectory</span><span class="p">:</span> <span class="s2">"./resources/mocked-data"</span><span class="p">,</span>
   <span class="na">port</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span>
   <span class="na">sessions</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="na">project</span><span class="p">:</span> <span class="s1">'HelloShifu'</span>
+  <span class="na">project</span><span class="p">:</span> <span class="s1">'HelloShifu'</span><span class="p">,</span>
+  <span class="na">metricsDB</span><span class="p">:</span> <span class="s1">'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'</span>
 <span class="p">});</span>
 </code></pre>
 </div>

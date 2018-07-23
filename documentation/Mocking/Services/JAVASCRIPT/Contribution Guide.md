@@ -10,17 +10,17 @@ The below diagram shows the mocking components in detail.
 
 The mocking service uses `shifu-smocks` which provides the stateful HTTP mocking service built on top of HAPI. It allows to add routes and different scenarios for each route.
 
-In addition, the mocking service provides certain utilities via [shifu-util](https://github.com/TestArmada/shifu-util). It also provides logging facility with [shifu-logger](https://github.com/TestArmada/shifu-logger)
+In addition, the mocking service provides certain utilities via [shifu-util](https://gecgithub01.walmart.com/otto/shifu-util). It also provides logging facility with [shifu-logger](https://gecgithub01.walmart.com/otto/shifu-logger)
 
 ## Mock Server Start flow
-
+    
 The mocking service exposes its features via API's and HTTP end points. Lets take a look at the sequence of events when the mock server is started.
 
 ![shifu_start_sequence_diagram]
 
 In the above diagram, the actor can be the test code which starts mock server or a developer using the mock service for local development / testing.
 
-* Users can specify what routes to mock by specifying them in endpoints.js
+* Users can specify what routes to mock by specifying them in endpoints.js which can look something like [this](https://gecgithub01.walmart.com/otto/boilerplate-mocking/blob/master/tests/resources/endPoints.js)
 
 * Shifu's `start()` is invoked with options to start the Shifu server
 
@@ -42,7 +42,7 @@ In the above diagram, the actor can be the test code which starts mock server or
 
 ![shifu_without_parallel_sessions]
 
-If we want to run two test cases in parallel, mocking the same route and returning different data, it won't be possible with running one  mock server and sharing across the whole test suite. So we needed to run one mock server and one application server per test case.
+If we want to run two test cases in parallel, mocking the same route and returning different data, it won't be possible with running one  mock server and sharing across the whole test suite. So we needed to run one mock server and one application server per test case. 
 
 ### With Parallel sessions
 
@@ -69,34 +69,32 @@ Mocking components are released as `npm` libraries
 
 ## Git repository information
 
-The source code for all mocking components reside in Github.
+The source code for all mocking components reside in Gec Github.
 
-* [Shifu](https://github.com/TestArmada/shifu)
-* [Shifu Util](https://github.com/TestArmada/shifu-util)
-* [Shifu Magellan Nightwatch](https://github.com/TestArmada/shifu-magellan-nightwatch)
-* [Shifu Logger](https://github.com/TestArmada/shifu-logger)
-* [Shifu Smocks](https://github.com/TestArmada/shifu-smocks)
-* [Shifu Swagger](https://github.com/TestArmada/shifu-swagger)
+* [Shifu](https://gecgithub01.walmart.com/otto/shifu)
+* [Shifu Util](https://gecgithub01.walmart.com/otto/shifu-util)
+* [Shifu Magellan Nightwatch](https://gecgithub01.walmart.com/otto/shifu-magellan-nightwatch)
+* [Shifu Logger](https://gecgithub01.walmart.com/otto/shifu-logger)
+* [Shifu Proxy](https://gecgithub01.walmart.com/otto/shifu-proxy)
+* [Shifu Swagger](https://gecgithub01.walmart.com/otto/shifu-swagger)
 
 ## Development process
 
 **_To contribute to the mocking fleet, please follow these steps:_**
 
-1. Fork the repository https://github.com/TestArmada/shifu. If your Github username is "abc" for e.g, your forked repository will be https://github.com/abc/shifu.
+1. ```git clone git@gecgithub01.walmart.com:otto/shifu.git```
 
-2. Clone this forked repository using ```git clone https://github.com/<username>/shifu.git``` and make "shifu" your working directory.
+2. Create a branch on local with ```git checkout -b <your branch name>```. **Note** The default branch for all projects is `development` so any branch you create will be off the `development` branch.
 
-3. Create a branch on local with ```git checkout -b <your branch name>```. **Note** The default branch for all projects is `development` so any branch you create will be off the `development` branch.
+3. Install dependencies using `npm install`.
 
-4. Install dependencies using `npm install`.
+4. Make the code changes in the branch you created in step (2) and write / update the unit tests to verify your changes. Run unit tests using ```npm test```. We use `eslint` to ensure code formatting. This step runs both unit tests as well as verifies code formatting. We use `istanbul` for code coverage reporting. **95%** is the minimum code coverage we expect for all our components.
 
-5. Make the code changes in the branch you created in step (3) and write / update the unit tests to verify your changes. Run unit tests using ```npm test```. We use `eslint` to ensure code formatting. This step runs both unit tests as well as verifies code formatting. We use `istanbul` for code coverage reporting. **95%** is the minimum code coverage we expect for all our components.
+5. Once you're ready, submit your pull request against the `development` branch. The Looper build triggers a [PR Verify build](https://ci.electrode.walmart.com/job/shifu/job/PR Verify/) which runs the tests in CI environment (same steps as in (4) above).
 
-6. Once you're ready, submit your pull request from your branch against the `development` branch of Shifu (https://github.com/TestArmada/shifu/tree/development). The PR triggers a [Travis build](https://travis-ci.org/TestArmada/shifu) which runs the tests in CI environment (same steps as in (5) above).
+6. Once the PR is reviewed , a team member merges the PR into the `development` branch.
 
-7. Once the PR is reviewed, a team member merges the PR into the `development` branch.
-
-8. When the `development` branch is merged to `master`, a team member will push a tag to `master`, a [Travis build](https://travis-ci.org/TestArmada/shifu) is triggered and publishes a new version of the package to `npm` registry.
+7. When the `development` branch is merged to `master`, the [Master Verify build](https://ci.electrode.walmart.com/job/shifu/job/Master Verify/) is triggered and publishes a new version of the package to Walmart's `npm` registry.
 
 **Note:** **_The same steps above are applicable for contributing to any of the mocking components._**
 

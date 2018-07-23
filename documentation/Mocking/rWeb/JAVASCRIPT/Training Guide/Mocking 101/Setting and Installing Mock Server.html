@@ -169,37 +169,40 @@
 <h3>1. Pre-requisites</h3>
 <ul>
 <li>node.js 4+ (npm is included in the package)</li>
+<li>If inside of Walmart you need npm access to the <a href="https://sde.walmart.com/docs/proximity/npm.html">internal nexus/npm repo</a></li>
 </ul>
 <h3>2. Add mock dependency to <code>package.json</code></h3>
 <pre><code class="language-json">&quot;dependencies&quot;: {
-  &quot;shifu&quot;: &quot;^1.0.0&quot;
+  &quot;@walmart/shifu&quot;: &quot;^3.0.4&quot;
 }
 </code></pre>
 <h3>3. Add <code>.npmrc</code> file to the project</h3>
-<pre><code class="language-bash">registry=https://registry.npmjs.org/
+<pre><code class="language-bash">registry=https://npme.walmart.com/
 strict-ssl=false
 </code></pre>
 <h3>4. Install mock dependency with <code>npm install</code></h3>
 <p>Run <code>npm install</code> command to install mock related dependencies.</p>
 <h3>5. Add <code>resources/endpoints.js</code> and create <code>./resources/mocked-data</code> directory to store the mock data.</h3>
 <pre><code class="language-js">require('./endpoints');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: &quot;localhost&quot;,
   mockedDirectory: &quot;./resources/mocked-data&quot;,
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 </code></pre>
 <h3>6. Add <code>resources/run-mock-server-console.js</code></h3>
 <pre><code class="language-js">require('./endpoints');
-require('shifu').start({
+require('@walmart/shifu').start({
   host: &quot;localhost&quot;,
   mockedDirectory: &quot;./resources/mocked-data&quot;,
   port: 8000,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 </code></pre>
-<p>Please note that you will need to replace <code>HelloShifu</code> for key <code>project</code> field with your project name(without dashes).</p>
+<p>Please note that you will need to replace <code>HelloShifu</code> for key <code>project</code> field with your project name(without dashes). Once you add that, you will be able to see the <a href="https://prod.rapido.walmart.com/dashboard/db/shifu-usage">usage statistics for your project</a> under your project. If you don't have access to this dashboard, please <a href="https://jira.walmart.com/servicedesk/customer/portal/1403">file a ticket</a>.</p>
 <h3>7. Add script to start mock server in <code>package.json</code></h3>
 <pre><code class="language-json">&quot;scripts&quot;: {
   &quot;lint&quot;: &quot;eslint . --ext .js&quot;,

@@ -169,13 +169,14 @@
 <p>To add parallel sessions, modify run-mock-server-console.js to add 'sessions' parameter.</p>
 </blockquote>
 <pre><code class="language-js">require('./endpoints');
-var shifu = require('shifu');
+var shifu = require('@walmart/shifu');
 shifu.start({
   host: &quot;localhost&quot;,
   mockedDirectory: &quot;./resources/mocked-data&quot;,
   port: 8000,
   sessions: 2,
-  project: 'HelloShifu'
+  project: 'HelloShifu',
+  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
 });
 </code></pre>
 <p><strong>You can also start or add sessions via command line argument</strong></p>

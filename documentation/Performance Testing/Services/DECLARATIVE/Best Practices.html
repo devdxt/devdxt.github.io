@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		  <div class="clear"></div>
+<div class="doc-container">
+  <div class="breadcrumb doc-breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <a class="breadcrumb__link" href="/Performance Testing/">Performance Testing</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <span class="breadcrumb__current-page">Services DECLARATIVE</span>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="sidebar">
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Introduction" class="sidebar__file-links">
+              Introduction
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Getting Started" class="sidebar__file-links">
+              Getting Started
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/FAQs" class="sidebar__file-links">
+              FAQs
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Best Practices" class="sidebar__file-links sidebar__file-links-current">
+              Best Practices
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Upcoming Features" class="sidebar__file-links">
+              Upcoming Features
+            </a></li>
+            
+          
+        
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+  </div>
+  <div class="doc-content markdown">
+    <h3 id="jmeter-scripting-best-practices"><strong>JMeter Scripting best practices</strong></h3>
+
+<ol>
+  <li>Avoid excessive logging as it severely impacts the throughput of load agents. Restrict your logging to error conditions only.</li>
+  <li>Total number of users in the test plan is per load agent. Number of users defined in the test plan and the number of load agents used is what defines the total number of users in the test.</li>
+  <li>JMeter versions are not forward compatible. To avoid compatibility issues, download the JMeter bundle from TestArmada self-service portal.</li>
+  <li>For web-based application testing, do not download the static assets on the pages. These assets are downloaded from CDN or are served from a separate web server which do not have any bearing on the application under test. Enabling this will significantly impact the test results and throughput of load agents.</li>
+  <li>Choose think time and pacing time between two successive transactions wisely. This is essential for mimicking real time usage.</li>
+  <li>For service level performance testing, think time and pacing time do not matter much as the focus of testing is on application throughput and latency.</li>
+  <li>JMeter captures response times for all calls within a transaction including individual API calls. Wrapping sub-transactions around each call within a transaction is not required.</li>
+  <li>Avoid unnecessary pre and post processors as they consume resources on the load agent</li>
+  <li>Randomize selection of test data from data files for unique data in each iteration. JMeter controllers do not assign unique test data to each user as is the case with few other tools.</li>
+</ol>
+
+<h3 id="execution-best-practices"><strong>Execution best practices</strong></h3>
+
+<ol>
+  <li>Avoid running JMeter console on your desktop or any machine on the corpnet. This will produce inaccurate results. JMeter console should only be used to unit test your scripts by running with 2 or more users.</li>
+  <li>Limit the number of virtual users to a maximum of 300 per load agent. Assumption here is the agent runs on a large VM and does not have any memory intensive computation within the script.</li>
+  <li>View Results tree listener should be disabled as results are available in the portal</li>
+  <li>Do not add any listeners to your script other than the specified Kafka listener. This is essential to view live results during the course of test execution.</li>
+  <li>Disable all graphs and JTL file generation from your test plan. Test results can be viewed live in the portal and the same is archived in the Data Insights DB.</li>
+  <li>Monitor test logs and test agent resource utilization for your test on the links below:<br />
+a.	<strong>Splunk:</strong> <a href="http://dfw-logsearch01.prod.walmart.com">http://dfw-logsearch01.prod.walmart.com</a> <br />
+b.	<strong>Medusa:</strong> <a href="https://medusa.walmart.com/dashboard/db/nextgen-perf_prod?refresh=5m&amp;orgId=1">https://medusa.walmart.com/</a> <br /></li>
+  <li>Save test logs locally from Splunk if you need it beyond 14 days from the execution date <br /></li>
+</ol>
+
+
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var elements = document.getElementsByClassName('highlight');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].className += " line-numbers";
+    if (!elements[i].parentElement.classList.value.match(/language/)) {
+      elements[i].children[0].className = "language-javascript";
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/prism.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/doc.js"></script>
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

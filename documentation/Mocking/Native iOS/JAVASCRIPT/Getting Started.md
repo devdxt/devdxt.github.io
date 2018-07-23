@@ -1,5 +1,6 @@
 ## Pre-Requisite
 1. Please install the latest [Node.js]
+1. The application needs to install npm modules from an internal repository. Add a file named `.npmrc` in the root of your project. Follow this [npm guide] to know more about .npmrc file.
 
 <br>
 
@@ -19,8 +20,8 @@ To set up mock server, you need only three things:
     ```
     "name": "<name-for-your-project>",
     "dependencies": {
-      "shifu": "^1.0.0",
-      "shifu-magellan-nightwatch": "^1.0.0" // needed only for magellan/nightwatch
+      "@walmart/shifu": "^3.0.7",
+      "@walmart/shifu-magellan-nightwatch": "^2.0.2" // needed only for magellan/nightwatch
     },
     "scripts": {
         "start-mock": "node mocks/run-mock-server-console.js"
@@ -30,7 +31,7 @@ To set up mock server, you need only three things:
 1. Under the directory `mocks`, create a file `endpoints.js` with the following code - _This file will contain the routes that you want to mock_
 
     ```
-        var shifu = require('shifu'); // Required
+        var shifu = require('@walmart/shifu'); // Required
         shifu.id('example'); // Required
 
         // add a route that returns a message "hello world"
@@ -50,13 +51,14 @@ To set up mock server, you need only three things:
     ```
         // load mocked endpoint
         require('./endpoints'); 
-        var shifu = require('shifu');
+        var shifu = require('@walmart/shifu');
 
         shifu.start({
           host: 'localhost',
           mockedDirectory: './mocks', // this can be provided as an absolute path as well.
           port: 8080,
           project: 'HelloShifu', //Replace HelloShifu with your project name (without dashes).
+          metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
         });
     ```
 
@@ -86,7 +88,8 @@ To set up mock server, you need only three things:
        httpsPort: 4444,
        host: 'localhost',
        mockedDirectory: './test/resources/mocked-data',
-       project: 'HelloShifu'
+       project: 'HelloShifu',
+       metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
      });
     ```
 
@@ -196,4 +199,5 @@ Please update your app server or application by changing the host name of your l
 
 [directing_traffic]: ../../images/mock_service_design.png?raw=true
 [Node.js]: https://nodejs.org/en/download/
+[npm guide]: https://sde.walmart.com/docs/proximity/npm.html
 [mock_server_setup_flow]: ../../images/work_flow.png?raw=true

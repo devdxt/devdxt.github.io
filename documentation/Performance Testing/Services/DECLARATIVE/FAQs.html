@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		  <div class="clear"></div>
+<div class="doc-container">
+  <div class="breadcrumb doc-breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <a class="breadcrumb__link" href="/Performance Testing/">Performance Testing</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <span class="breadcrumb__current-page">Services DECLARATIVE</span>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="sidebar">
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Introduction" class="sidebar__file-links">
+              Introduction
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Getting Started" class="sidebar__file-links">
+              Getting Started
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/FAQs" class="sidebar__file-links sidebar__file-links-current">
+              FAQs
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Best Practices" class="sidebar__file-links">
+              Best Practices
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/Services/DECLARATIVE/Upcoming Features" class="sidebar__file-links">
+              Upcoming Features
+            </a></li>
+            
+          
+        
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+  </div>
+  <div class="doc-content markdown">
+    <h3 id="faqs"><strong>FAQs</strong></h3>
+
+<p><strong>1.	Where can I store my JMeter test artifacts? <br /></strong>
+Jmeter test artifacts should be in your project repository under the test/performance folder as depicted in the image:<br />
+<img src="images/FolderStructure.png" alt="" />
+<br />
+<strong>2.	Running my test errors out or does not produce results. How do I debug? <br /></strong>
+Ensure the location of JMX complies to the diagram above and the Kafka Listener is added to your test plan. Without the Kafka listener, the results will not flow into the Data Insights module.</p>
+
+<p><strong>3.	I have developed custom plugin for my test. How do I get this on my load agents?<br /></strong>
+Dedicated load agents are required for any customization. Reach out to the Otto team on <strong>#testautomation</strong> channel to create dedicated agent and to add custom plugins to it.</p>
+
+<p><strong>4.	I have custom jars I use in my test client. How do I add these to my load agents?<br /></strong>
+Dedicated load agents are required for any customization. Reach out to the Otto team on <strong>#testautomation</strong> channel to create dedicated agent and to add custom jar files to it.</p>
+
+<p><strong>5.	I want to use custom listeners to stream test results to my database. How do I do that?<br /></strong>
+This is not supported on the Test Armada platform. We mandate all tests run on our platform stream results into Data Insights module.</p>
+
+<p><strong>6.	I want to use only the Data Insights module of Test Armada to maintain my test results. How can I do this?<br /></strong>
+This is possible after <strong>Q3</strong> of <strong>FY19</strong>. Reach out to Otto team on <strong>#testautomation</strong> channel for more details.</p>
+
+<p><strong>7.	Can I use my own JMeter load agents?<br /></strong>
+Yes you can. Test agents in our internal data centers can be added and tied to your project. Your load agents will have to use JMeter available for download on <a href="http://gec-maven-nexus.walmart.com/content/repositories/pangaea_releases/otto/nextgen/nextgenjmeter/nextgenplatformjmeter/">getLatestVersionOfJmeter</a>.</p>
+
+<p><strong>8.	Can I run performance tests from load agents in public cloud?<br /></strong>
+Currently we do not have test agents setup in public cloud. This is in our roadmap for <strong>Q3</strong> &amp; <strong>Q4</strong> of <strong>FY19</strong> to have agents setup in three US regions.</p>
+
+<p><strong>9.	Can I get help with JMeter scripting?<br /></strong>
+Debugging and troubleshooting help with existing scripts is possible. Test Armada team does not undertake new scripting work.</p>
+
+
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var elements = document.getElementsByClassName('highlight');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].className += " line-numbers";
+    if (!elements[i].parentElement.classList.value.match(/language/)) {
+      elements[i].children[0].className = "language-javascript";
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/prism.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/doc.js"></script>
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>

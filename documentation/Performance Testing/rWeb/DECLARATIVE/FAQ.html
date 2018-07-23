@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Armada</title>
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="/css/training.css">
+	<link rel="stylesheet" type="text/css" href="/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="/css/contact.css">
+	<link rel="stylesheet" type="text/css" href="/css/search.css">
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="/css/prism.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.css">
+	
+	<link rel="shortcut icon" href="/documentation/images/favicon.ico">
+	
+</head>
+<body>
+	
+	<header>
+		<a href="/">
+			<img src="/documentation/images/ta-logo.png" class="logo" alt="Main Brand Logo"
+				 srcset="/documentation/images/ta-logo%402x.png 2x, /documentation/images/ta-logo%403x.png 3x">
+		</a>
+		<form action="/search" method="get">
+			<input type="text" id="search-box" name="query" placeholder="Search" class="search-box">
+			<div class="select-box">
+				<select name="fleet" id="fleet-box" onchange="document.getElementById('search-box').focus();">
+					<option value="all">All Fleets</option>
+					
+					<option value="Functional Testing">Functional Testing</option>
+					
+					<option value="Mocking">Mocking</option>
+					
+					<option value="Performance Testing">Performance Testing</option>
+					
+					<option value="Data Insights">Data Insights</option>
+					
+				</select>
+			</div>
+		</form>
+		<div class="nav-links">
+			
+			<div class="nav-links__fleets">
+				<a class="nav-links__fleets-btn">
+					Fleets <img src="/images/arrow-down-icon.png" class="arrow-down-icon"
+								srcset="/images/arrow-down-icon%402x.png 2x,
+										/images/arrow-down-icon%403x.png 3x">
+				</a>
+				<div class="nav-links__fleets-content">
+					<a href="/">
+						All Fleets
+					</a>
+					
+					<a href="/Functional Testing/">
+						Functional Testing
+					</a>
+					
+					<a href="/Mocking/">
+						Mocking
+					</a>
+					
+					<a href="/Performance Testing/">
+						Performance Testing
+					</a>
+					
+					<a href="/Data Insights/">
+						Data Insights
+					</a>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			<a href="/documentation/About.html" class="nav-links__main-links">About Us</a>
+			
+			
+			
+			
+			
+			
+			<a href="/faq" class="nav-links__main-links">FAQ</a>
+			
+			
+			
+			<a href="https://github.com/TestArmada/" target="_blank" class="nav-links__main-links">GitHub</a>
+			
+		</div>
+	</header>
+
+	<div class="container">
+		  <div class="clear"></div>
+<div class="doc-container">
+  <div class="breadcrumb doc-breadcrumb">
+    <p>
+      <a class="breadcrumb__link" href="/">Home</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <a class="breadcrumb__link" href="/Performance Testing/">Performance Testing</a>
+      <img src="/images/arrow-right-icon.png"
+           srcset="/images/arrow-right-icon@2x.png 2x,
+                   /images/arrow-right-icon@3x.png 3x"
+           class="arrow-right-icon">
+      <span class="breadcrumb__current-page">rWeb DECLARATIVE</span>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="sidebar">
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Introduction" class="sidebar__file-links">
+              Introduction
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Getting Started" class="sidebar__file-links">
+              Getting Started
+            </a></li>
+            
+          
+        
+      
+        
+          
+            
+            
+              <li class="sidebar__file-links">Developer Guide</li>
+            
+          
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
+              Boilerplates
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/Contribution Guide" class="sidebar__file-links">
+              Contribution Guide
+            </a></li>
+            
+          
+        
+      
+        
+          
+          
+            
+            <li><a href="/documentation/Performance Testing/rWeb/DECLARATIVE/FAQ" class="sidebar__file-links sidebar__file-links-current">
+              FAQ
+            </a></li>
+            
+          
+        
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </ul>
+  </div>
+  <div class="doc-content markdown">
+    <h2 id="what-advantages-does-rapido-provide-over-other-online-performance-tools">What advantages does Rapido provide over other online performance tools?</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>_Answer:_ 
+
+Here are few advantages : 
+- Rapido provides performanc testing as a part of Contionous Delivery, that is, it integrates with your repo and runs performance tests as part of PR Verify, Master Verify or scheduled build.
+- Rapido gives you an ability to catch the performance regressions of your app right at the gate, which gives you an opportunity to fix any performance bugs where it can be fixed easily.
+- Rapido provides an infrastructure to run web and mweb performance tests in Walmart's environment. The set up is done in Walmart's oneops environment which enables easy integration and on-boarding of any new projects. 
+- Provides data transformation tools and and visualization which comes with the package when you on-board on Rapido.  
+- Easy set up, onboarding takes around 2 hours.
+- Rapido runs the tests in laboratory conditions, meaning, they run on VMs which are monitored for resources (CPU, memory, and network resources). We make sure that the VMs are isolated and are not affected by any noise that affect the tests. 
+</code></pre>
+</div>
+
+<h2 id="how-long-does-it-take-to-onboard-on-rapido">How long does it take to onboard on Rapido?</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Around 2-3 hours if you are an electrode project.
+</code></pre>
+</div>
+
+<h2 id="can-i-run-rapido-in-my-local-environment">Can I run Rapido in my local environment?</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Yes, Rapido can be executed on your local by simply following the above instructions.  You can also use   https://gecgithub01.walmart.com/rapido/rapido_local to run rapido locally. This repo has interactive features available which sets up rapido on its own to get a head start.
+</code></pre>
+</div>
+
+<h2 id="are-the-performance-tests-reliable">Are the performance tests reliable?</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Performance tests are results recieved from the browser API itself. There could be few variances in some of the metrics delivered by sitespeed.io, but mostly the results are reliable when you run the tests with a mock server serving your application. We have seen large variances when a live backend is used for testing and that is because of obvious reasons.  That being said, we understand that performance, for many teams, would mean running tests on whole application with backened services involved. We provide following recommendations when it comes to running web performance tests :
+
+  - PR Verify for front end code  - Run with mock server
+  - Master Verify for front end code - Run with mock server
+  - Prod Verify for front end code - Run without mock server.
+</code></pre>
+</div>
+
+<p>Please note that the Prod verify tests will have more flakiness in metrics becasue they will be affected by various factors, for example, network delays, geographical location, network speed and availability of third party content. The production tests can give you an idea of how your application is performing in the production and you can look for big fluctuations on the metrics to give you an idea if anything bad is happening with your application.</p>
+
+<h2 id="how-is-rapido-results-different-from-real-user-metrics-rum-results">How is Rapido results different from Real User Metrics (RUM) results?</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>- RUM metrics are measurements which are captured by beacon data when real users browse and perform click actions on the production website. Rapido metrics are measurements produced by synthetic performance testing, in which we create an environment for testing and run the application performance test in tighly monitored environment.  While RUM data is very useful for measuring the performance of your website in real world, it is a completely different measurements from the metrics produced in synthetic testing.  The reasons are obvious, testing in real world brings a lot of factors into play. Some of them are : network availability, geographic location, device resources etc.  In case of synthetic testing, the motive of testing is itself very different. The motivation here is to test performance of the app before it goes out in the real world. This  provides us an opportunity to fix the performance regressions before they are used by real users.
+</code></pre>
+</div>
+
+  </div>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+  var elements = document.getElementsByClassName('highlight');
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].className += " line-numbers";
+    if (!elements[i].parentElement.classList.value.match(/language/)) {
+      elements[i].children[0].className = "language-javascript";
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/prism.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/doc.js"></script>
+	</div>
+
+	<footer>
+		<img class="left-footer-logo" alt="Left Footer Logo"
+			 src="/documentation/images/dxt-logo.png"
+			 srcset="/documentation/images/dxt-logo%402x.png 2x,
+					 /documentation/images/dxt-logo%403x.png 3x">
+		
+		<span class="copyright">&copy; 2018 Walmart Inc.</span>
+		
+		<img class="right-footer-logo" alt="Right Footer Logo"
+			 src="/documentation/images/walmartlabs-logo.png"
+			 srcset="/documentation/images/walmartlabs-logo%402x.png 2x,
+			 		 /documentation/images/walmartlabs-logo%403x.png 3x">
+	</footer>
+
+</body>
+</html>
