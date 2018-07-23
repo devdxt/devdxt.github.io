@@ -6,9 +6,6 @@
 - [Create Mocked Route - route()](#create-mocked-route---route)
 - [Create Variant - variant()](#create-variant---variant)
 - [Set variant - setMockVariant()](#set-variant---setmockvariant)
-- [Reset all variants - resetAllVariants()](#reset-all-variants---resetallvariants)
-    - [Without sessions](#without-sessions)
-    - [With sessions](#with-sessions)
 - [Add global variants - addGlobalVariant()](#add-global-variants---addglobalvariant)
 - [Respond With File - respondWithFile()](#respond-with-file---respondwithfile)
 - [Respond with mock variant - respondWithMockVariant()](#respond-with-mock-variant---respondwithmockvariant)
@@ -72,20 +69,18 @@ mockedDirectory |Path to the mocked data directory (default: `resources/mocked-d
 sessions | Number of parallel sessions to start the mock server with (default: 0) | No |
 collectMetrics | Enable mock server to collect usage metrics (default: true) | No |
 project | Name for your project (default: default) | No |
-metricsDB | The database url where mock server posts usage metrics to <br> default: http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints | No |
 
 **Example**
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.start({
   host: 'localhost',
   port: 12000,
   httpsPort: 12001,
   mockedDirectory: '/resources/mockedData',
   sessions: 3,
-  project: 'My Project',
-  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+  project: 'My Project'
 });
 ```
 
@@ -111,7 +106,7 @@ callback | The first argument to callback function is an error if an error is en
 **Example**
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 var server = shifu.start(options, callback);
 
 // do something with mock server
@@ -156,7 +151,7 @@ handler | The HAPI route handler which provides the route response. This is opti
 **Example**
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   id: 'my_route',
   label: 'My Route',
@@ -198,7 +193,7 @@ handler | The HAPI route handler which provides the variant response for the rou
 **Example**
 
 ```javascript
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   id: 'my_route',
   path: '/api/foo',
@@ -257,7 +252,7 @@ where `options` has the following attributes:
 If the routes are defined like
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   id: 'hello',
   path: '/helloWorld',
@@ -296,123 +291,12 @@ or
 
 Alternately, you can also use `curl` call to set a variant with this POST call to `{host}:{port}/shifu/api/route/{routeId}`
 
-curl -H "Content-Type: application/json" -X POST -d '{"variant":"universe"}' http://localhost:8080/shifu/api/route/hello?returnConfig=true
+curl -H "Content-Type: application/json" -X POST -d '{"variant":"{universe}"}' http://localhost:8080/shifu/api/route/hello?returnConfig=true
 ```
 
 You can confirm if this works by going to Admin panel and see that for `helloWorld` route, the variant `universe` will be highlighted. Also, hitting this url `http://localhost:8080/helloWorld` will reply with `Hello Universe`.
 
 If the variant does not exist on the route, mock server returns with an Internal Server error (HTTP 500).
-
----
-
-<br>
-
-### Reset all variants - resetAllVariants()
-
-`resetAllVariants` can be used to reset all the variants for all routes for a given session id to `default`.
-
-```
-shifu.resetAllVariants(shifuSessionId, callback) // with Shifu library
-
-or 
-
-browser.resetAllVariants(options, callback) // when using Magellan
-```
-
-***The following attributes are supported:***
-
-Attribute | Description | Required |
-:--------------: | -------------- | :--------------: |
-shifuSessionId | Session id for which all variants for all routes are to be set to `default` | No |
-callback | callback function to be called after resetAllVariants() | No |
-
-**Example**
-
-If the routes are defined like
-
-```
-var shifu = require('@walmart/shifu');
-shifu.route({
-  id: 'hello',
-  path: '/helloWorld',
-  handler: function(request, reply) {
-    reply('Hello World');
-  }
-})
-.variant({
-  id: 'universe',
-  handler: function(request, reply) {
-    reply('Hello Universe');
-  }
-});
-
-shifu.route({
-  id: 'hi',
-  path: '/hiWorld',
-  handler: function(request, reply) {
-    reply('Hi World');
-  }
-})
-.variant({
-  id: 'galaxy',
-  handler: function(request, reply) {
-    reply('Hi Galaxy');
-  }
-});
-```
-
-#### Without sessions
-
-When not using the sessions feature, you don't need to send the `shifuSessionId` parameter. By default, `resetAllVariants` sets all the variants for all the routes to `default` for the `default` session.
-
-For the above routes, if the variant `universe` is set for the path `helloWorld` and variant `galaxy` is set for the path `hiWorld`, all the variants can be set to `default` for both these routes in this way:
-
-```
-shifu.resetAllVariants(function (err) {
-    if (err) {
-        console.log('Error in resetting all variants:' + err);
-    } else {
-        console.log('Successfully reset variants');
-    }
-});
-
-or 
-
-// When using Magellan
-browser.resetAllVariants();
-```
-
-Alternately, you can also use `curl` call to set a variant with this POST call to `{host}:{port}/shifu/api/resetAllVariants
-
-```
-curl -X GET  http://localhost:8080/shifu/api/resetAllVariants
-```
-
-#### With sessions
-
-For the route and variant defined as above, you can set the variant to `universe` as follows:
-``` 
-// when using Shifu library
-// shifuSessionId is a valid registered session with Shifu
-shifu.resetAllVariants(shifuSessionId, function (err) {
-    if (err) {
-        console.log('Error in resetting all variants:' + err);
-    } else {
-        console.log('Successfully reset variants');
-    }
-});
-
-or 
-
-// When using Magellan
-browser.resetAllVariants(shifuSessionId);
-```
-
-Alternately, you can also use `curl` call to set a variant with this POST call to `{host}:{port}/shifu/api/resetAllVariants/{shifuSessionId}`
-
-```
-curl -X GET  http://localhost:8080/shifu/api/resetAllVariants/{shifuSessionId}
-```
 
 ---
 
@@ -432,7 +316,7 @@ where
 
 **Example**
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 
 shifu.addGlobalVariant({
   id: '500',
@@ -476,7 +360,7 @@ To use this feature, you can call `respondWithFile()` from inside route configur
 
 **Example**
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 
 // Automatic reply of the file
 shifu.route({
@@ -524,7 +408,7 @@ reply | Reply object | Yes |
 
 **Example**
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
     id: 'respondWithVariant',
     label: 'Respond With Variant',
@@ -573,7 +457,7 @@ callback | callback function to be invoked after mock id is set (only when using
 The file name should be in the format `url-methodName-urlCount.extension` for the responses stored under file. For example, for the given route below 
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 
 shifu.route({
   id: 'my_route',
@@ -594,7 +478,7 @@ the file name should be `api-foo-GET-1.json` for the first time the URL is hit. 
 **Example**:
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.setMockId('cart', 'abcdef'); // All responses should be under "cart" directory under your mocked data directory
 
 or 
@@ -630,7 +514,7 @@ shifuSessionId | Shifu session id, if using parallel sessions | No |
 **Example**:
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 var mockId = shifu.getMockId('abcdef');
 
 or 
@@ -667,7 +551,7 @@ callback | callback function to be invoked after mock id is set (only when using
 **Example**:
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.resetMockId('abcdef');
 
 or 
@@ -708,7 +592,7 @@ callback | callback function to be be invoked after the mock id is reset | No |
 **Example**:
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.resetURLCount('abcdef');
 
 or 
@@ -743,7 +627,7 @@ shifuSessionId | Shifu session id, if using parallel sessions | No |
 **Example**:
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.getURLCount('abcdef');
 
 or 
@@ -785,7 +669,7 @@ If no session is available to use, Shifu returns with the message `NOT_AVAILABLE
 If `shifu` server is started with sessions, for e.g 3 sessions as shown below,
 
 ```
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.start({
     host: 'localhost',
     port: 8080,
@@ -838,7 +722,7 @@ callback | callback function to be be invoked after the session is registered. F
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 shifu.closeSession('abcdef'); // abcdef is a previously registered session with Shifu
 
 or 
@@ -877,7 +761,7 @@ shifuSessionId | Shifu session id | Yes |
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 var status = shifu.checkSession('abcdef');
 
 or 
@@ -900,7 +784,7 @@ shifu.getSessions();
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 var status = shifu.getSessions();
 
 or 
@@ -923,7 +807,7 @@ shifu.clearSessions();
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 var status = shifu.clearSessions();
 ```
 
@@ -942,7 +826,7 @@ shifu.getProjectName();
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 var projectName = shifu.getProjectName();
 ```
 
@@ -961,7 +845,7 @@ shifu.getPortInfo();
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 var portInfo = shifu.getPortInfo();
 ```
 
@@ -988,7 +872,7 @@ value | Value of the state variable | Yes |
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.route({
   id: 'setState',
@@ -1022,7 +906,7 @@ key | Key for the state variable | Yes |
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.route({
   id: 'getState',
@@ -1055,7 +939,7 @@ shifuSessionId | Shifu session id | No |
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.clearState(); // Clears state for default session
 
@@ -1082,7 +966,7 @@ boolean | true to enable, false to disable | No |
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.enableMetrics(true); // Enables gathering of usage metrics
 
@@ -1104,7 +988,7 @@ shifu.isMetricsEnabled();
 **Example**
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.isMetricsEnabled();
 ```
@@ -1229,7 +1113,7 @@ callback | Callback function  after killprocess completes | No |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.killProcess(18222, 'SIGKILL', function () {
   console.log('Process killed);
@@ -1260,7 +1144,7 @@ callback | Callback function after file is read. If file is read successfully, t
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.readFile('data.json', function (err, fileData) {
   if (err) {
@@ -1294,7 +1178,7 @@ file path | Absolute or relative location of file | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.readFileSynchronously('data.json');
 ```
@@ -1322,7 +1206,7 @@ file path | Absolute or relative location of JSON file | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.readJsonFile('data.json');
 ```
@@ -1352,7 +1236,7 @@ callback | Callback function after writeFile completes | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.writeFile('hello.txt', 'hello world blah blah', function () {
   console.log('Wrote to file successfully');
@@ -1383,7 +1267,7 @@ callback | Callback function after deleteFile completes | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.deleteFile('filetoDelete.txt', function (err) {
   if (err) {
@@ -1414,7 +1298,7 @@ directory path | Location of directory to check | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.checkDirectoryExists('/home/data');
 ```
@@ -1440,7 +1324,7 @@ file path | Location of file to check | Yes |
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.util.checkFileExists('/home/data');
 ```
@@ -1470,7 +1354,7 @@ logLevel | Log level you want to set .Valid values (warn/info/debug/error) | Yes
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.log.setLogLevel('debug');
 
@@ -1496,13 +1380,13 @@ Logger.getLogLevel(); // when using Shifu-Logger
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 
 shifu.log.getLogLevel();
 
 or
 
-var Logger = require('@walmart/shifu-logger');
+var Logger = require('shifu-logger');
 Logger.getLogLevel();
 
 or
@@ -1527,12 +1411,12 @@ Logger.resetLogLevel();
 ***Example***
 
 ```
-var shifu = require('@walmart/shifu);
+var shifu = require('shifu);
 shifu.log.resetLogLevel();
 
 or
 
-var Logger = require('@walmart/shifu-logger');
+var Logger = require('shifu-logger');
 Logger.resetLogLevel();
 
 or 

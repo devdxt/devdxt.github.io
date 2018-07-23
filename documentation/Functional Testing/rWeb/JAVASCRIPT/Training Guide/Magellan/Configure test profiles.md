@@ -11,12 +11,12 @@ There are two ways to configure test profiles
 {
   "profiles": {
     "microsoftedge": [{
-      "browser": "microsoftedge_14_Windows_10_Desktop",
+      "browser": "MicrosoftEdge_16_Windows_10_Desktop",
       "resolution": "1280x1024",
       "executor": "sauce"
     }],
     "tier-one-browsers": [{
-       "browser": "microsoftedge_14_Windows_10_Desktop",
+       "browser": "MicrosoftEdge_16_Windows_10_Desktop",
        "resolution": "1280x1024",
        "executor": "sauce"
       },

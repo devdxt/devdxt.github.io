@@ -42,14 +42,3 @@ The functional JS TDK supports:
 
 * **Clouds** - Saucelabs & Testobject
 
-## Customers
-
-The following teams are using the functional iOS JS TDK:
-
-* Checkout RN
-
-* Store
-
-* Account Mobile
-
-* Omnichannel Mobile

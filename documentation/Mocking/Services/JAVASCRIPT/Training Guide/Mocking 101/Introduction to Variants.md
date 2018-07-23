@@ -82,6 +82,3 @@ shifu.route({
     }
 });
 ```
-
-  ### 6. Resetting all variants
-  You can reset all variants for all routes for a given session id (`default` session if not session id is passed) using the `resetAllVariants` API. Please refer to `resetAllVariants` in the API guide section.

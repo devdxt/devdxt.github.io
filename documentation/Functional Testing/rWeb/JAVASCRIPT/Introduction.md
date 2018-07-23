@@ -41,29 +41,3 @@ The functional JS TDK supports:
 * **Reporters** - xunit, json & mongo db
 
 * **Clouds** - Saucelabs & Testobject
-
-## Customers
-The following teams are using the functional JS TDK:
-
-* [Home](https://gecgithub01.walmart.com/R-Discovery/home)
-* [Easy Reorder](https://gecgithub01.walmart.com/R-Discovery/easy-reorder)
-* [Product](https://gecgithub01.walmart.com/R-Discovery/product)
-* [Back To School](https://gecgithub01.walmart.com/R-Discovery/back-to-school)
-* [Reviews](https://gecgithub01.walmart.com/R-Discovery/reviews)
-* [NonConfig](https://gecgithub01.walmart.com/R-Discovery/non-config)
-* [Product](https://gecgithub01.walmart.com/R-Discovery/product)
-* [Store Finder](https://gecgithub01.walmart.com/R-instore/store-finder)
-* [Thank You](https://gecgithub01.walmart.com/R-Transaction/thank-you)
-* [Cart](https://gecgithub01.walmart.com/R-Transaction/cart)
-* [Checkout](https://gecgithub01.walmart.com/R-Transaction/checkout)
-* [Lists](https://gecgithub01.walmart.com/R-Transaction/lists)
-* [Account](https://gecgithub01.walmart.com/R-User/account)
-* [Customer Care](https://gecgithub01.walmart.com/R-User/customer-care)
-* [Smart Pay](https://gecgithub01.walmart.com/R-User/smart-pay)
-* [Unified Login](https://gecgithub01.walmart.com/R-User/unified-login)
-* [Pharmacy Account](https://gecgithub01.walmart.com/R-Pharmacy/account)
-* [Search Tools](https://gecgithub01.walmart.com/R-Apollo/search-tools)
-* [Tempo](https://gecgithub01.walmart.com/platform/Tempo)
-* [Tango](https://gecgithub01.walmart.com/rramakr/tango-ui)
-
-

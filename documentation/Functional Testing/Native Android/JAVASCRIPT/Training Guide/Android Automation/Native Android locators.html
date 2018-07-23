@@ -144,43 +144,9 @@
 <div class="training-content markdown">
 <h2>Native Android app locators</h2>
 <ul>
-<li><p>To find native Android app locators, there is a handy tool:
-<strong><a href="https://github.com/appium/appium-desktop">Appium Desktop</a></strong></p></li>
-<li><p>It's a GUI wrapper around the Appium server, comes with an Inspector, which enables you to check out the hierarchy of your app.</p></li>
-<li><p>E.g How to find the <em>SIGN IN</em> button in the following screen</p></li>
-</ul>
-<p><img src="../../../images/SignIn.png" alt="enter image description here" /></p>
-<p><strong>Steps:</strong></p>
-<ol>
-<li>Open Appium Desktop, and start the server</li>
-<li>Click <strong>Start Inspector Session</strong> button</li>
-<li>Add the Desired Capabilites property one by one. Or Add them from a .json data, e.g.</li>
-</ol>
-<pre><code class="language-bash">{
-  &quot;platformName&quot;: &quot;Android&quot;,
-  &quot;platformVersion&quot;: &quot;7.1.1&quot;,
-  &quot;deviceName&quot;: &quot;a71_API_25&quot;,
-  &quot;app&quot;: &quot;/Users/abc/app/Walmart.apk&quot;,
-  &quot;locationServicesAuthorized&quot;: true,
-  &quot;locationServicesEnabled&quot;: true
-}
-</code></pre>
-<ol start="4">
-<li>Click <strong>Start Session</strong> to start the inspector</li>
-<li>Go to the Sign In screen, and select <strong>SIGN IN</strong> field in the inspector's left preview window.
-<img src="../../../images/Locators.png" alt="enter image description here" /></li>
-<li>Check the element's attribute. E.g for this case, it has an unique id <code>&quot;com.walmart.android:id/app_nav_header_sign_in&quot;</code>, then we can use ** id** as the <strong>locateStrategy</strong> and <strong><em>com.walmart.android:id/app_nav_header_sign_in</em></strong>, as the <strong>selector</strong></li>
-<li>If the element does not have an unique value, you could locate element by relative <strong>xpath</strong>. e.g. <em>//android.widget.Button[@value=&quot;Password&quot;]</em></li>
-<li>Please note - should use <strong><em>accessibility id</em></strong> or <strong><em>id</em></strong> as much as possible.  <strong><em>xpath</em></strong> is slow and unreliable.</li>
-</ol>
-<h3>Quiz</h3>
-<ul>
-<li>Please automate Verify Empty Cart test, steps:
-<ul>
-<li>Launch the Walmart Android app</li>
-<li>Click 'Cart' icon in the top navigation bar</li>
-<li>Verify you will see msg &quot;You have no saved items right now&quot; in Cart page</li>
-</ul></li>
+<li>To find native Android app locators, there is a handy tool:
+<strong><a href="https://github.com/appium/appium-desktop">Appium Desktop</a></strong></li>
+<li>It's a GUI wrapper around the Appium server, comes with an Inspector, which enables you to check out the hierarchy of your app.</li>
 </ul>
 </div>
 <div class="training-doc-nav-btn">

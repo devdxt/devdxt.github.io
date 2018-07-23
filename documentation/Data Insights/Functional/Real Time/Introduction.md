@@ -15,7 +15,7 @@ The less time developers waste waiting for test data to be available, the more p
 those developers are - and the better their workflow is. What results is an improved
 experience for developers in the organization, and - through improved application quality
 and visual appearance that comes from these insights - a greatly improved experience
-for the Walmart customer.
+for the customer.
 
 ## Dashboard
 

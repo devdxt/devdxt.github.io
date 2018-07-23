@@ -146,15 +146,14 @@
 <h4>Prerequisites:</h4>
 <ul>
 <li>Install <a href="https://developer.apple.com/download/">Xcode 9.2</a></li>
-<li>Install <a href="https://nodejs.org/en/download/">Node.js</a> and <strong>NPM</strong> (npm is distributed with <a href="https://nodejs.org/"><strong>Node.js</strong></a>- which means that when you download Node.js, you automatically get npm installed on your computer)</li>
-<li>Check that you have at least <strong>npm</strong> version 3 or above (required by <em>appium@1.7.x</em>):</li>
+<li>Install Node.js &gt;= v4.x.x</li>
+<li>Install <a href="http://nodejs.org/">npm</a>. Check that you have at least <strong>npm</strong> version 3 or above (required by <em>appium@1.7.x</em>):</li>
 </ul>
 <pre><code class="language-bash">$ npm --version
 # If not, install npm3
 $ npm install -g npm@3
 </code></pre>
 <ul>
-<li>To get the Walmart internal npm packages, you need to follow the steps: https://sde.walmart.com/docs/proximity/npm.html#downloading-packages</li>
 <li>Please map <strong>dev.walmart.com</strong> to <strong>127.0.0.1</strong> in your host file</li>
 </ul>
 <h4>Setup Steps:</h4>
@@ -162,8 +161,8 @@ $ npm install -g npm@3
 <li>Get the sample code and install the node package dependencies:</li>
 </ul>
 <pre><code class="language-bash"># Create a workspace and get the smaple code
-$ git clone git@gecgithub01.walmart.com:dxt/boilerplate-nightwatch-mobile.git
-$ cd boilerplate-nightwatch-mobile 
+$ git clone git@github.com:TestArmada/boilerplate-nightwatch.git
+$ cd boilerplate-nightwatch
 $ npm install
 $ npm install appium@1.7.2
 $ npm install wd
@@ -177,20 +176,52 @@ $ npm install appium-doctor -g
 $ appium-doctor --ios
 </code></pre>
 <ul>
-<li>Download <a href="http://gec-maven-nexus.walmart.com/nexus/service/local/artifact/maven/redirect?r=pangaea_snapshots&amp;g=com.walmart.ios.development-qa-nightly&amp;a=Walmart.app&amp;v=LATEST&amp;p=zip">Walmart app</a> and renamed to <strong>Walmart.zip</strong>. Unzip it under <strong>./app</strong> directory, delete <strong><em>Users</em></strong> folder. Compress <strong><em>./app/Walmart</em></strong> to <strong>./app/Walmart.zip</strong>, replace the the original one</li>
-<li>Or get the Walmart.app by using the following command option:</li>
+<li>Get a developer build of the application you want to test, put it under <code>./app</code> folder, for example rename .app and put it as <code>./app/AUT.app</code>.</li>
+<li>Please make sure you have iPhone 8, iOS 11.2 simulator before execute the sample test.</li>
+<li>Put following entry in your <code>nightwatch.json</code></li>
 </ul>
-<pre><code class="language-bash">curl -L 'http://gec-maven-nexus.walmart.com/nexus/service/local/artifact/maven/redirect?r=pangaea_snapshots&amp;g=com.walmart.ios.development-qa-nightly&amp;a=Walmart.app&amp;v=LATEST&amp;p=zip' &gt; app/Walmart.zip &amp;&amp; unzip -o app/Walmart.zip -d app/ &amp;&amp; rm -rf app/Users app/Walmart.zip &amp;&amp; zip -r app/Walmart.zip app/Walmart.app
+<pre><code class="language-javascript">&quot;appiumiosapp&quot;: {
+    &quot;skip_testcases_on_fail&quot;: true,
+    &quot;desiredCapabilities&quot;: {
+      &quot;app&quot;: &quot;./app/AUT.app&quot;,
+      &quot;appiumVersion&quot;: &quot;1.7.2&quot;,
+      &quot;automationName&quot;: &quot;XCUITest&quot;,
+      &quot;platformName&quot;: &quot;iOS&quot;,
+      &quot;platformVersion&quot;: &quot;11.2&quot;,
+      &quot;deviceName&quot;: &quot;iPhone 8&quot;,
+      &quot;waitForAppScript&quot;: &quot;true&quot;,
+      &quot;browserName&quot;: &quot;&quot;
+    },
+    &quot;selenium&quot;: {
+      &quot;start_process&quot;: false
+    },
+    &quot;appium&quot;: {
+      &quot;start_process&quot;: true,
+      &quot;fullReset&quot;: true
+    }
+  }
 </code></pre>
 <ul>
-<li>Please make sure you have iPhone 8, iOS 11.2 simulator before execute the sample test.</li>
 <li>If you would like to try out some different simulators, please modify the <strong><em>appiumiosapp</em></strong> part in <strong>.conf/nightwatch.json</strong> file.</li>
+<li>Add a test <code>app.test.js</code> under <code>./tests</code> folder, it can be as simple as following</li>
+</ul>
+<pre><code class="language-javascript">var Test = require(&quot;testarmada-nightwatch-extra/lib/base-test-class&quot;);
+
+module.exports = new Test({
+  
+  &quot;Load demo page&quot;: function (client) {
+    console.log('yeah');
+  }
+});
+</code></pre>
+<ul>
 <li>Try the sample test:</li>
 </ul>
-<pre><code class="language-bash">$ npm run test:ios
+<pre><code class="language-bash">./node_modules/.bin/magellan --config magellan.json --local_browser appiumiosapp  --test tests/app.test.js --serial --max_test_attempts 1
 </code></pre>
+<p>You should see iOS simulator open, your app open, close and simulator close.</p>
 <ul>
-<li>If you don't have SauceLabs credential , please remove this line in <strong><em>./magellan.json</em></strong> file:</li>
+<li>If you don't have Saucelabs credential , please remove this line in <strong><em>./magellan.json</em></strong> file for now. We'll get back to Saucelabs setup in next section.</li>
 </ul>
 <pre><code class="language-bash">&quot;testarmada-magellan-saucelabs-executor&quot;
 </code></pre>

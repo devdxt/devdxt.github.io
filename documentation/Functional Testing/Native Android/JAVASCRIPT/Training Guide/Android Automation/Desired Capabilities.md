@@ -18,22 +18,14 @@
         "browser": "Android_GoogleAPI_Emulator_Android_7_1_Android",
         "orientation": "portrait",
         "appium": {
-          "app": "sauce-storage:Walmart_app.apk",
+          "app": "sauce-storage:AUT.apk",
           "platformName": "Android",
           "appiumVersion": "1.7.2",
           "fullReset": "true",
           "noReset": "false",
-          "appActivity": "com.walmart.android.app.main.MainActivity",
-          "appWaitActivity": "com.walmart.android.app.main.HomeActivity"
+          "appActivity": "com.yourcompany.android.main.MainActivity",
+          "appWaitActivity": "com.yourcompany.android.main.AnotherActivity"
         }
       }
     ],
-```
-### Quiz
-Can you create a Desired Capability to using the mocked Android app?
-
-**Hint:**
-You should add this parameter in:
-```bash
-"optionalIntentArguments": "-e automation.extra.service.PROFILE 'stage' -e automation.extra.service.CONFIG '[{\"services\":[\"quimby\",\"receiptsQuery\",\"receiptsLegacy\",\"hapi\",\"mobile\",\"moneyServices\",\"pay\",\"pharmacy\",\"pickup\",\"pin\",\"purchaseHistory\",\"savingsCatcherQuery\",\"savingsCatcher\",\"storeLocator\",\"endlessAisle\",\"www\",\"pie\"],\"host\":\"10.0.2.2:12000\",\"isHttp\":true},{\"services\":[\"tfGraphql\"],\"host\":\"https://10.0.2.2:12000/terra-firma/graphql\", \"isHttp\":true}]'",
 ```

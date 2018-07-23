@@ -1,15 +1,5 @@
 ### Tests framework structure
 
-####  Recommend practice is **Page Objects Model** Design Pattern. 
-
-In our sample boilerplate: 
- 1. Command parameter **--test tests/app.test.js** executes tests in **app.test.js** file. 
-2. **Tests** are defined in **.js** files under **.tests/** folder, each file is a test.
-3. Locators and function commands are grouped by page/screen, and are put in **./lib/pages/device/** folder.
-     E.g in **app.test**, the login step would require elements and commands that are defined in **./lib/pages/ios/login.js** file.  
-4. Profiles that are used to execute tests in remote, e.g. SauceLabs, are defined in magellan.json fine.
-5. Local browsers are defined in nightwatch.json file, they are used for local simulator tests, and they are not supported in profiles.
-
 ####  Where to find mobile commands
  1. When look at commands in page files, e.g. **setMobileElValue()** may look new to you. Those mobile commands are defined in ***./node_modules/testarmada-nightwatch-extra/lib/commands/mobile***.
  2. Assertions, e.g. **mobileElAttrContains()**, are defined in ***./node_modules/testarmada-nightwatch-extra/lib/assertions/mobile***.
@@ -29,6 +19,3 @@ In our sample boilerplate:
     "./lib/custom_commands"
   ],
 ```
-
-### Quiz
-Run mocked iOS app sample test in the local box with a different iOS simulator. 

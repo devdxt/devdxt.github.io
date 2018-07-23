@@ -18,7 +18,6 @@ the actual back end service and add a mocked route in the file containing mocked
 
 ## What Are The Pre-Requisites?
  * node.js 4+ (npm is included in the package)
- * If inside of Walmart you need npm access to the internal [nexus/npm repo](https://confluence.walmart.com/display/PGPTOOLS/NPM+and+Nexus)
 
 <br>
 
@@ -26,7 +25,7 @@ the actual back end service and add a mocked route in the file containing mocked
 
 ```javascript
 "dependencies": {
-  "@walmart/shifu": "3.0.4" // add the latest version
+  "shifu": "1.0.0" // add the latest version
 }
 ```
 
@@ -46,11 +45,6 @@ shifu.route({
   }
 });
 ```
-
-<br>
-
-## Why do I see `No routes defined for this path` ?
-Any undefined routes in Shifu will be responsed with a user friendly message `No routes defined for this path`.
 
 <br>
 
@@ -76,7 +70,7 @@ shifu.route({
 ## How To Read Dynamic URLs In Request?
 
 ```javascript
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   path: '/get/customerInfo/{customerid}/{zipcode}'
   handler: function(request, reply) { 
@@ -92,16 +86,12 @@ shifu.route({
 ## How To Read Header Parameters In Request?
 
 ```javascript
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
     var headers = request.raw.req.headers;
     var authorization = headers.authorization;
-    if(authorization) {
-       // do something
-    }
-    reply().code(204);
   }
 }); 
 ```
@@ -111,7 +101,7 @@ shifu.route({
 ## How To Read Payload In Request?
 
 ```javascript
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
@@ -127,7 +117,7 @@ shifu.route({
 ## How To Read Query Parameters In Request?
 
 ```javascript
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.route({
   path: '/api/getCart'
   handler: function(request, reply) {
@@ -137,48 +127,6 @@ shifu.route({
   }
 }); 
 ``` 
-
-<br>
-
-## How to read url parameters in request ?
-
-To read the dynamic URL parameters in request with in the route, use `request.params`
-
-```
-var shifu = require('@walmart/shifu');
-shifu.route({
-  path: '/api/customer/{id}'
-  handler: function(req, reply) {
-    // would be "123" if the endpiont hit was "/api/customer/123"
-    var id = request.params.id;
-  }
-});
-```
-
-<br>
-
-## How to add delay to response?
-
-A mocked response can also be delayed by some time specified by the user. You can simulate a delay (in ms) by passing delay as follows :
-```
-shifu.route({
-  id: 'message',
-  label: 'Hello Variants',
-  path: '/message',
-
-  variantLabel: 'hello world',
-  handler: function (req, reply) {
-    shifu.util.respondWithFile(this, reply, {code: 202});
-  }
-})
-.variant({
-    id: 'variant with delay',
-    label: 'variant with delay',
-    handler: function (req, reply) {
-      shifu.util.respondWithFile(this, reply, {filePath: './message/GET/variant_with_delay.json', delay: 1000});
-    }
-  });
-```
 
 <br>
 
@@ -202,19 +150,6 @@ shifu.route({
 ```
 
 ### Alternate Way
-
-To set custom headers, call `header(name, value, options)` on reply object, where 
-
-`name` is the header name
-`value` is the header value
-`options` is an optional object with the following attributes
-
-| Attribute | Description |
-| --------- | :-----------: |
-| append | if `true`, the value is appended to any existing header value using separator. Defaults to `false`. |
-| separator | string used as separator when appending to an exiting value. Defaults to `','` |
-| override | if `false`, the header value is not set if an existing value present. Defaults to `true` |
-| duplicate | if `false`, the header value is not modified if the provided value is already included. Does not apply when append is false or if the name is 'set-cookie'. Defaults to `true` |
 
 ```javascript
 shifu.route({
@@ -251,11 +186,6 @@ shifu.route({
 ```
 
 ### Alternate Way
-To set custom cookies, call `state(name, value, options)` on reply object, where 
-`name` is the cookie name
-`value` is the cookie value
-`options` is the server state options settings found [here](https://hapijs.com/api#serverstatename-options)
-
 
 ```javascript
 shifu.route({
@@ -272,21 +202,6 @@ shifu.route({
 <br>
 
 ## How To Set CORS Headers?
-
-The [Cross-Origin Resource Sharing](https://www.w3.org/TR/cors/) protocol allows browsers to make cross-origin API calls. CORS is required by web application running inside a browser which are loaded from a different domain than the API server. CORS headers are disabled by default. To enable, set `cors` to true, or to an object with the following options:
-
-| Option | Description |
-| ------- | :-----------: |
-| origin | a string array of allowed origin servers `Access-Control-Allow-Origin`. Defaults to any origin ['*'] |
-| maxAge | number of seconds the browser should cache the CORS response ('Access-Control-Max-Age'). The greater the value, the longer it will take before the browser checks for changes in policy. Defaults to 86400 (one day). |
-| headers | string array of allowed headers `Access-Control-Allow-Headers`. Defaults to `['Authorization', 'Content-Type', 'If-None-Match']`. |
-| additionalHeaders | string array of additional headers to headers. Use this to keep the default headers in place. |
-| methods | string array of allowed HTTP methods Access-Control-Allow-Methods. Defaults to `['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS']` |
-| additionalMethods | string array of additional methods to methods. Use this to keep the default methods in place |
-| exposedHeaders | string array of exposed headers Access-Control-Expose-Headers. Defaults to `['WWW-Authenticate', 'Server-Authorization'` |
-| additionalExposedHeaders | a string array of additional headers to exposedHeaders. Use this to keep the default headers in place. |
-| credentials | if true, allows user credentials to be sent Access-Control-Allow-Credentials. Defaults to false. |
-
 
 ```javascript
 var corsHeaders = {
@@ -407,20 +322,19 @@ Mocked directory path is the location to the base directory where all your mocke
 
 ```javascript
 require('./endpoints');
-require('@walmart/shifu').start({
+require('shifu').start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
-  project: 'HelloShifu',
-  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+  project: 'HelloShifu'
 });
 ```
 
 <br>
 
 ## Location For Response File For RespondWithFile?
-If you have set your default folder to be `mocked-data`, then based on your URL path: 
- 
+If you have set your default folder to be `mocked-data`, then based on your URL path:
+
 For default variant, mock server will look for `./mocked-data/product/grouping/api/collection/GET/default.json` 
 and for `mixItem` variant mock server will look for `./mocked-data/product/grouping/api/collection/GET/mixItem.json` 
 
@@ -535,12 +449,6 @@ curl -H "Content-type: application/json" -X POST -d "variant":"helloUniverse"}' 
 
 <br>
 
-## Can I reset all variants for all the routes?
-Yes. Please refer [resetAllVariants](/documentation/Mocking/rWeb/JAVASCRIPT/API%20Guide#reset-all-variants---resetallvariants) in API guide section.
-
-
-<br>
-
 ## What Is Mock Server UI Used For? 
 UI can be used to view and test mocked routes as well as for manual switching of variants when running tests manually. 
 
@@ -563,14 +471,13 @@ Add `sessions` parameter with number of virtual services you want as shown in be
 
 ```javascript
 require('./endpoints');
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
   sessions: 2,
-  project: 'HelloShifu',
-  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+  project: 'HelloShifu'
 });
 ```
 
@@ -748,60 +655,6 @@ If you're using content type like `application/graphql`, follow this example
   });
 ```  
 For more details, [read this](https://stackoverflow.com/questions/34640307/support-additional-mime-types-in-hapi)
-
-<br>
-
-## How to send meta information for response ?
-
-Mocked responses can also have meta information that can be set in the response files itself. For example :
-
-```
-{
-  "setHeaders": {
-    "date": "Fri, 06 Jan 2017 03:33:22 GMT",
-    "content-type": "text/html; charset=UTF-8",
-    "transfer-encoding": "chunked",
-    "connection": "close",
-    "set-cookie": [
-      "__cfduid=d7502270409ade5544a5a60d0fbd7652a1483673602; expires=Sat, 06-Jan-18 03:33:22 GMT; path=/; domain=.typicode.com; HttpOnly"
-    ],
-    "x-powered-by": "Express",
-    "vary": "Accept-Encoding",
-    "access-control-allow-credentials": "true",
-    "cache-control": "public, max-age=14400",
-    "last-modified": "Thu, 05 Jan 2017 07:28:00 GMT",
-    "via": "1.1 vegur",
-    "cf-cache-status": "HIT",
-    "expires": "Fri, 06 Jan 2017 07:33:22 GMT",
-    "server": "cloudflare-nginx",
-    "cf-ray": "31cc1baee47b11fb-SJC"
-  },
-  "setCode":201,
-  "setPayload": "resources/mocked-data/message/GET/file_read_from_recorded_file.txt",
-  "setContentType": "text/plain; charset=utf-8"
-}
-```
-
-The above file is going to set the headers of the response from Shifu according to `headers` provided in `setHeaders`, `code` provided in `setCode` , `contentType` provided in `setContentType` and `payload` provided in `setPayload`. If `setPayload` is a path of the file intended to be responded with, then Shifu will look for the file and respond with the content of that file. If `setPayload` is JSON content, then Shifu will respond with JSON content.
-
-The above functionality makes sure that Shifu is able to handle all the file types when responding with recorded mocked data.
-
-In order to test different scenarios, you can add/delete/update header information in the `setHeaders` value. Or if you need to change the `contentType` of the response, you can simply replace value of `setContentType`.
-
-Please note that `setContentType` will take precedence over `content-type` header value. If `setContentType` is not provided then, HTTP will set the contentType of the file according to file type.
-
-<br>
-
-## How to add Shifu custom commands to Nightwatch?
-
-To add mock server custom commands to control the Shifu server in your end to end tests, add the following in `nightwatch.json`:
-
-```
-"custom_commands_path": [
-    ...
-    "./node_modules/shifu-magellan-nightwatch/commands"
-  ],
-```
 
 
 [without_parallel_sessions]: ../../images/shifu_without_parallel_sessions.png?raw=true "Shifu Without Parallel Sessions"

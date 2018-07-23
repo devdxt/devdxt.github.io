@@ -1,22 +1,7 @@
 ### Setup
-In the repo root (where you did the ***builder-init*** install), please follow these steps to setup the archetype project:
+Please fork from [boilerplate project](https://github.com/TestArmada/boilerplate-nightwatch) and use `git clone` to have a local copy. Then run following commands
 
-```bash
-# 1.run archetype project
-./node_modules/.bin/builder-init @walmart/otto-archetype-desktop
-
-# 2.copy package.json from archetype to your repo
-cp ./test/automation/package.json .
-
-# 3.install the dependencies
-npm install
 ```
-
-There is an alternative project that might be easier to follow (this one has a sample looper job setup):
-```bash
-# 1.get the sample project
-git clone git@gecgithub01.walmart.com:dxt/boilerplate-magellan-desktop.git
-# 2.install the dependencies
 npm install
 ```
 

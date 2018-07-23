@@ -16,7 +16,7 @@ We provide a mocking solution which can be leveraged to quickly stub the REST AP
 * **Drop and Respond** - Respond with a JSON file based on the url route path automatically by dropping JSON response file in folder mapping to url path
 * **Test Reuse** - ability to execute test cases against mock or live service
 
-The mocking solution helps the teams develop and test their web and mobile applications in local as well as CI environments. The solution is being used by more than 70+ teams across different organizations within Walmart.
+The mocking solution helps the teams develop and test their web and mobile applications in local as well as CI environments.
 
 ## Feature list
 
@@ -47,37 +47,3 @@ The mocking solution helps the teams develop and test their web and mobile appli
  * Debugging tool to help development by supporting auto-replay of data
  * Support to auto-generate endpoint URLs for mocking
  * Support for changing mocked data via UI
-
-## Customers
-The following teams are using mocking service to mock their backend services during functional testing as well as during development.
-
-* [Home](https://gecgithub01.walmart.com/R-Discovery/home)
-* [Easy Reorder](https://gecgithub01.walmart.com/R-Discovery/easy-reorder)
-* [Product](https://gecgithub01.walmart.com/R-Discovery/product)
-* [Back To School](https://gecgithub01.walmart.com/R-Discovery/back-to-school)
-* [Reviews](https://gecgithub01.walmart.com/R-Discovery/reviews)
-* [NonConfig](https://gecgithub01.walmart.com/R-Discovery/non-config)
-* [Product](https://gecgithub01.walmart.com/R-Discovery/product)
-* [Store Finder](https://gecgithub01.walmart.com/R-instore/store-finder)
-* [Thank You](https://gecgithub01.walmart.com/R-Transaction/thank-you)
-* [Cart](https://gecgithub01.walmart.com/R-Transaction/cart)
-* [Checkout](https://gecgithub01.walmart.com/R-Transaction/checkout)
-* [Lists](https://gecgithub01.walmart.com/R-Transaction/lists)
-* [Sams Product](https://gecgithub01.walmart.com/R-sams-discovery/sams-product)
-* [Sams Cart](https://gecgithub01.walmart.com/R-sams-discovery/sams-cart)
-* [Sams Checkout](https://gecgithub01.walmart.com/R-sams-discovery/checkout)
-* [Sams Join Now](https://gecgithub01.walmart.com/R-sams-membership/Join-now)
-* [Account](https://gecgithub01.walmart.com/R-User/account)
-* [Customer Care](https://gecgithub01.walmart.com/R-User/customer-care)
-* [Smart Pay](https://gecgithub01.walmart.com/R-User/smart-pay)
-* [Unified Login](https://gecgithub01.walmart.com/R-User/unified-login)
-* [Store Checkin](https://gecgithub01.walmart.com/store-team/checkin-mocks)
-* [Store Ereceipt](https://gecgithub01.walmart.com/store-team/ereceipt-mocks)
-* [Store Pharmacy Pay](https://gecgithub01.walmart.com/store-team/pharmacy-mocks)
-* [Store Savings Catcher](https://gecgithub01.walmart.com/store-team/savingscatcher-mocks)
-* [Pharmacy Account](https://gecgithub01.walmart.com/R-Pharmacy/account)
-* [Search Tools](https://gecgithub01.walmart.com/R-Apollo/search-tools)
-* [Tempo](https://gecgithub01.walmart.com/platform/Tempo)
-* [Tango](https://gecgithub01.walmart.com/platform/tango-ui)
-
-And more !!!

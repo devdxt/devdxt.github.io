@@ -9,16 +9,6 @@ Exception in thread "main" java.lang.UnsupportedClassVersionError: org/openqa/gr
 ```
  **Tips**: Please check your java version (java -version), you should use java 1.8. You can download it [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-- host pointing error
-```bash
-Error: getaddrinfo ENOTFOUND travis.dev
-    at errnoException (dns.js:28:10)
-    at GetAddrInfoReqWrap.onlookup \[as oncomplete\] (dns.js:76:26)
-...
-  ```
- **Tips**: Please add travis.dev into your hosts file(/etc/hosts)
-
-- Want to make sure shifu server up and running, check [this](http://dev.walmart.com:12000/shifu)
 
 **Some general trouble shooting tips for Appium iOS app automation:**
 

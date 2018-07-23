@@ -56,7 +56,7 @@ The hosted test profile file needs to follow the format of
 {
   "profiles": {
     "microsoftedge": [{
-      "browser": "microsoftedge_14_Windows_10_Desktop",
+      "browser": "MicrosoftEdge_16_Windows_10_Desktop",
       "resolution": "1280x1024",
       "executor": "sauce"
     }],
@@ -81,7 +81,7 @@ Or, as a better way to handle multiple test profiles as a batch, you can put mul
 {
   "profiles": {
     "tier-one-browsers": [{
-        "browser": "microsoftedge_14_Windows_10_Desktop",
+        "browser": "MicrosoftEdge_16_Windows_10_Desktop",
         "resolution": "1280x1024",
         "executor": "sauce"
       },

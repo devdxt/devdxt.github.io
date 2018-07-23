@@ -179,18 +179,6 @@
         
           
           
-          
-            
-            <li><a href="/documentation/Mocking/rWeb/JAVASCRIPT/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
-              Boilerplates
-            </a></li>
-            
-          
-        
-      
-        
-          
-          
             
             <li><a href="/documentation/Mocking/rWeb/JAVASCRIPT/Contribution Guide" class="sidebar__file-links">
               Contribution Guide
@@ -237,12 +225,6 @@
   <li><a href="#create-mocked-route---route">Create Mocked Route - route()</a></li>
   <li><a href="#create-variant---variant">Create Variant - variant()</a></li>
   <li><a href="#set-variant---setmockvariant">Set variant - setMockVariant()</a></li>
-  <li><a href="#reset-all-variants---resetallvariants">Reset all variants - resetAllVariants()</a>
-    <ul>
-      <li><a href="#without-sessions">Without sessions</a></li>
-      <li><a href="#with-sessions">With sessions</a></li>
-    </ul>
-  </li>
   <li><a href="#add-global-variants---addglobalvariant">Add global variants - addGlobalVariant()</a></li>
   <li><a href="#respond-with-file---respondwithfile">Respond With File - respondWithFile()</a></li>
   <li><a href="#respond-with-mock-variant---respondwithmockvariant">Respond with mock variant - respondWithMockVariant()</a></li>
@@ -359,25 +341,19 @@
       <td>Name for your project (default: default)</td>
       <td style="text-align: center">No</td>
     </tr>
-    <tr>
-      <td style="text-align: center">metricsDB</td>
-      <td>The database url where mock server posts usage metrics to <br /> default: http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints</td>
-      <td style="text-align: center">No</td>
-    </tr>
   </tbody>
 </table>
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.start({
   host: 'localhost',
   port: 12000,
   httpsPort: 12001,
   mockedDirectory: '/resources/mockedData',
   sessions: 3,
-  project: 'My Project',
-  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+  project: 'My Project'
 });
 </code></pre>
 </div>
@@ -420,7 +396,7 @@ shifu.start({
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 var server = shifu.start(options, callback);
 
 // do something with mock server
@@ -507,7 +483,7 @@ shifu.stop(server, function (error) {
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.route({
   id: 'my_route',
   label: 'My Route',
@@ -583,7 +559,7 @@ shifu.route({
 
 <p><strong>Example</strong></p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@walmart/shifu'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shifu</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'shifu'</span><span class="p">);</span>
 <span class="nx">shifu</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
   <span class="na">id</span><span class="p">:</span> <span class="s1">'my_route'</span><span class="p">,</span>
   <span class="na">path</span><span class="p">:</span> <span class="s1">'/api/foo'</span><span class="p">,</span>
@@ -684,7 +660,7 @@ browser.setMockVariant(options, callback) // when using Magellan
 
 <p>If the routes are defined like</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.route({
   id: 'hello',
   path: '/helloWorld',
@@ -723,141 +699,13 @@ or
 
 Alternately, you can also use `curl` call to set a variant with this POST call to `{host}:{port}/shifu/api/route/{routeId}`
 
-curl -H "Content-Type: application/json" -X POST -d '{"variant":"universe"}' http://localhost:8080/shifu/api/route/hello?returnConfig=true
+curl -H "Content-Type: application/json" -X POST -d '{"variant":"{universe}"}' http://localhost:8080/shifu/api/route/hello?returnConfig=true
 </code></pre>
 </div>
 
 <p>You can confirm if this works by going to Admin panel and see that for <code class="highlighter-rouge">helloWorld</code> route, the variant <code class="highlighter-rouge">universe</code> will be highlighted. Also, hitting this url <code class="highlighter-rouge">http://localhost:8080/helloWorld</code> will reply with <code class="highlighter-rouge">Hello Universe</code>.</p>
 
 <p>If the variant does not exist on the route, mock server returns with an Internal Server error (HTTP 500).</p>
-
-<hr />
-
-<p><br /></p>
-
-<h3 id="reset-all-variants---resetallvariants">Reset all variants - resetAllVariants()</h3>
-
-<p><code class="highlighter-rouge">resetAllVariants</code> can be used to reset all the variants for all routes for a given session id to <code class="highlighter-rouge">default</code>.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>shifu.resetAllVariants(shifuSessionId, callback) // with Shifu library
-
-or 
-
-browser.resetAllVariants(options, callback) // when using Magellan
-</code></pre>
-</div>
-
-<p><strong><em>The following attributes are supported:</em></strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Attribute</th>
-      <th>Description</th>
-      <th style="text-align: center">Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">shifuSessionId</td>
-      <td>Session id for which all variants for all routes are to be set to <code class="highlighter-rouge">default</code></td>
-      <td style="text-align: center">No</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">callback</td>
-      <td>callback function to be called after resetAllVariants()</td>
-      <td style="text-align: center">No</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Example</strong></p>
-
-<p>If the routes are defined like</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
-shifu.route({
-  id: 'hello',
-  path: '/helloWorld',
-  handler: function(request, reply) {
-    reply('Hello World');
-  }
-})
-.variant({
-  id: 'universe',
-  handler: function(request, reply) {
-    reply('Hello Universe');
-  }
-});
-
-shifu.route({
-  id: 'hi',
-  path: '/hiWorld',
-  handler: function(request, reply) {
-    reply('Hi World');
-  }
-})
-.variant({
-  id: 'galaxy',
-  handler: function(request, reply) {
-    reply('Hi Galaxy');
-  }
-});
-</code></pre>
-</div>
-
-<h4 id="without-sessions">Without sessions</h4>
-
-<p>When not using the sessions feature, you don’t need to send the <code class="highlighter-rouge">shifuSessionId</code> parameter. By default, <code class="highlighter-rouge">resetAllVariants</code> sets all the variants for all the routes to <code class="highlighter-rouge">default</code> for the <code class="highlighter-rouge">default</code> session.</p>
-
-<p>For the above routes, if the variant <code class="highlighter-rouge">universe</code> is set for the path <code class="highlighter-rouge">helloWorld</code> and variant <code class="highlighter-rouge">galaxy</code> is set for the path <code class="highlighter-rouge">hiWorld</code>, all the variants can be set to <code class="highlighter-rouge">default</code> for both these routes in this way:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>shifu.resetAllVariants(function (err) {
-    if (err) {
-        console.log('Error in resetting all variants:' + err);
-    } else {
-        console.log('Successfully reset variants');
-    }
-});
-
-or 
-
-// When using Magellan
-browser.resetAllVariants();
-</code></pre>
-</div>
-
-<p>Alternately, you can also use <code class="highlighter-rouge">curl</code> call to set a variant with this POST call to `{host}:{port}/shifu/api/resetAllVariants</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -X GET  http://localhost:8080/shifu/api/resetAllVariants
-</code></pre>
-</div>
-
-<h4 id="with-sessions">With sessions</h4>
-
-<p>For the route and variant defined as above, you can set the variant to <code class="highlighter-rouge">universe</code> as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>// when using Shifu library
-// shifuSessionId is a valid registered session with Shifu
-shifu.resetAllVariants(shifuSessionId, function (err) {
-    if (err) {
-        console.log('Error in resetting all variants:' + err);
-    } else {
-        console.log('Successfully reset variants');
-    }
-});
-
-or 
-
-// When using Magellan
-browser.resetAllVariants(shifuSessionId);
-</code></pre>
-</div>
-
-<p>Alternately, you can also use <code class="highlighter-rouge">curl</code> call to set a variant with this POST call to <code class="highlighter-rouge"><span class="p">{</span><span class="err">host</span><span class="p">}</span><span class="err">:</span><span class="p">{</span><span class="err">port</span><span class="p">}</span><span class="err">/shifu/api/resetAllVariants/</span><span class="p">{</span><span class="err">shifuSessionId</span><span class="p">}</span></code></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -X GET  http://localhost:8080/shifu/api/resetAllVariants/{shifuSessionId}
-</code></pre>
-</div>
 
 <hr />
 
@@ -876,7 +724,7 @@ browser.resetAllVariants(shifuSessionId);
 <p><strong>options</strong> - JSON object with the same attributes as of variant <a href="#set-variant---setmockvariant">described in this section</a></p>
 
 <p><strong>Example</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 
 shifu.addGlobalVariant({
   id: '500',
@@ -961,7 +809,7 @@ shifu.addGlobalVariant({
 <p>To use this feature, you can call <code class="highlighter-rouge">respondWithFile()</code> from inside route configuration as follows:</p>
 
 <p><strong>Example</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 
 // Automatic reply of the file
 shifu.route({
@@ -1034,7 +882,7 @@ shifu.route({
 </table>
 
 <p><strong>Example</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.route({
     id: 'respondWithVariant',
     label: 'Respond With Variant',
@@ -1104,7 +952,7 @@ browser.setMockId(mocKId, shifuSessionId, callback); // when using Magellan
 
 <p>The file name should be in the format <code class="highlighter-rouge">url-methodName-urlCount.extension</code> for the responses stored under file. For example, for the given route below</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 
 shifu.route({
   id: 'my_route',
@@ -1123,7 +971,7 @@ shifu.route({
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.setMockId('cart', 'abcdef'); // All responses should be under "cart" directory under your mocked data directory
 
 or 
@@ -1172,7 +1020,7 @@ curl http://localhost:8000/shifu/api/setMockId/cart/abcdef
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 var mockId = shifu.getMockId('abcdef');
 
 or 
@@ -1226,7 +1074,7 @@ browser.resetMockId(shifuSessionId, callback); // when using Magellan
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.resetMockId('abcdef');
 
 or 
@@ -1284,7 +1132,7 @@ browser.resetURLCount(shifuSessionId, callback)
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.resetURLCount('abcdef');
 
 or 
@@ -1332,7 +1180,7 @@ curl http://localhost:8000/shifu/api/resetURLCount/abcdef
 
 <p><strong>Example</strong>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.getURLCount('abcdef');
 
 or 
@@ -1387,7 +1235,7 @@ browser.registerSession(callback); // with browser tests
 
 <p>If <code class="highlighter-rouge">shifu</code> server is started with sessions, for e.g 3 sessions as shown below,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu');
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu');
 shifu.start({
     host: 'localhost',
     port: 8080,
@@ -1456,7 +1304,7 @@ browser.closeSession(shifuSessionId, callback);
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 shifu.closeSession('abcdef'); // abcdef is a previously registered session with Shifu
 
 or 
@@ -1510,7 +1358,7 @@ curl http://localhost:8000/shifu/api/closeSession/abcdef
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 var status = shifu.checkSession('abcdef');
 
 or 
@@ -1533,7 +1381,7 @@ curl http://localhost:8000/shifu/api/checkSession/abcdef
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 var status = shifu.getSessions();
 
 or 
@@ -1556,7 +1404,7 @@ curl http://localhost:8000/shifu/api/getSessions
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 var status = shifu.clearSessions();
 </code></pre>
 </div>
@@ -1575,7 +1423,7 @@ var status = shifu.clearSessions();
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 var projectName = shifu.getProjectName();
 </code></pre>
 </div>
@@ -1594,7 +1442,7 @@ var projectName = shifu.getProjectName();
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 var portInfo = shifu.getPortInfo();
 </code></pre>
 </div>
@@ -1642,7 +1490,7 @@ var portInfo = shifu.getPortInfo();
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.route({
   id: 'setState',
@@ -1693,7 +1541,7 @@ shifu.route({
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.route({
   id: 'getState',
@@ -1739,7 +1587,7 @@ shifu.route({
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.clearState(); // Clears state for default session
 
@@ -1779,7 +1627,7 @@ shifu.clearState('abcdef') // Clears state for session id `abcdef`
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.enableMetrics(true); // Enables gathering of usage metrics
 
@@ -1801,7 +1649,7 @@ shifu.enableMetrics(false); // Disables gathering of usage metrics
 
 <p><strong>Example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.isMetricsEnabled();
 </code></pre>
@@ -1964,7 +1812,7 @@ shifu.util.respondWithFile(this, reply, {transpose: dataToChange});
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.killProcess(18222, 'SIGKILL', function () {
   console.log('Process killed);
@@ -2012,7 +1860,7 @@ shifu.util.killProcess(18222, 'SIGKILL', function () {
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.readFile('data.json', function (err, fileData) {
   if (err) {
@@ -2059,7 +1907,7 @@ shifu.util.readFile('data.json', function (err, fileData) {
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.readFileSynchronously('data.json');
 </code></pre>
@@ -2100,7 +1948,7 @@ shifu.util.readFileSynchronously('data.json');
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.readJsonFile('data.json');
 </code></pre>
@@ -2151,7 +1999,7 @@ shifu.util.readJsonFile('data.json');
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.writeFile('hello.txt', 'hello world blah blah', function () {
   console.log('Wrote to file successfully');
@@ -2199,7 +2047,7 @@ shifu.util.writeFile('hello.txt', 'hello world blah blah', function () {
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.deleteFile('filetoDelete.txt', function (err) {
   if (err) {
@@ -2242,7 +2090,7 @@ shifu.util.deleteFile('filetoDelete.txt', function (err) {
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.checkDirectoryExists('/home/data');
 </code></pre>
@@ -2280,7 +2128,7 @@ shifu.util.checkDirectoryExists('/home/data');
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.util.checkFileExists('/home/data');
 </code></pre>
@@ -2323,7 +2171,7 @@ Logger.setLogLevel(logLevel); // when using Shifu-Logger
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.log.setLogLevel('debug');
 
@@ -2349,13 +2197,13 @@ Logger.getLogLevel(); // when using Shifu-Logger
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 
 shifu.log.getLogLevel();
 
 or
 
-var Logger = require('@walmart/shifu-logger');
+var Logger = require('shifu-logger');
 Logger.getLogLevel();
 
 or
@@ -2380,12 +2228,12 @@ Logger.resetLogLevel();
 
 <p><strong><em>Example</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('@walmart/shifu);
+<div class="highlighter-rouge"><pre class="highlight"><code>var shifu = require('shifu);
 shifu.log.resetLogLevel();
 
 or
 
-var Logger = require('@walmart/shifu-logger');
+var Logger = require('shifu-logger');
 Logger.resetLogLevel();
 
 or 

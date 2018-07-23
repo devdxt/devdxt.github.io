@@ -12,14 +12,13 @@ Parallel sessions allows you to run multiple instance of server virtually while 
 
 ```js
 require('./endpoints');
-var shifu = require('@walmart/shifu');
+var shifu = require('shifu');
 shifu.start({
   host: "localhost",
   mockedDirectory: "./resources/mocked-data",
   port: 8000,
   sessions: 2,
-  project: 'HelloShifu',
-  metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+  project: 'HelloShifu'
 });
 ```
 **You can also start or add sessions via command line argument**

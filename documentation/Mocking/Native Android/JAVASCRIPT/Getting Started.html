@@ -127,8 +127,6 @@
     
     
     
-    
-    
       
       
         
@@ -185,18 +183,6 @@
         
           
           
-          
-            
-            <li><a href="/documentation/Mocking/Native Android/JAVASCRIPT/Boilerplates" class="sidebar__file-links sidebar__file-sublink">
-              Boilerplates
-            </a></li>
-            
-          
-        
-      
-        
-          
-          
             
             <li><a href="/documentation/Mocking/Native Android/JAVASCRIPT/Contribution Guide" class="sidebar__file-links">
               Contribution Guide
@@ -234,7 +220,6 @@
     <h2 id="pre-requisite">Pre-Requisite</h2>
 <ol>
   <li>Please install the latest <a href="https://nodejs.org/en/download/">Node.js</a></li>
-  <li>The application needs to install npm modules from an internal repository. Add a file named <code class="highlighter-rouge">.npmrc</code> in the root of your project. Follow this <a href="https://sde.walmart.com/docs/proximity/npm.html">npm guide</a> to know more about .npmrc file.</li>
 </ol>
 
 <p><br /></p>
@@ -258,8 +243,8 @@
 
     <div class="highlighter-rouge"><pre class="highlight"><code> "name": "&lt;name-for-your-project&gt;",
  "dependencies": {
-   "@walmart/shifu": "^3.0.7",
-   "@walmart/shifu-magellan-nightwatch": "^2.0.2" // needed only for magellan/nightwatch
+   "shifu": "^1.0.0",
+   "shifu-magellan-nightwatch": "^1.0.0" // needed only for magellan/nightwatch
  },
  "scripts": {
      "start-mock": "node mocks/run-mock-server-console.js"
@@ -271,7 +256,7 @@
   <li>
     <p>Under the directory <code class="highlighter-rouge">mocks</code>, create a file <code class="highlighter-rouge">endpoints.js</code> with the following code - <em>This file will contain the routes that you want to mock</em></p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>     var shifu = require('@walmart/shifu'); // Required
+    <div class="highlighter-rouge"><pre class="highlight"><code>     var shifu = require('shifu'); // Required
      shifu.id('example'); // Required
 
      // add a route that returns a message "hello world"
@@ -293,14 +278,13 @@
 
     <div class="highlighter-rouge"><pre class="highlight"><code>     // load mocked endpoint
      require('./endpoints'); 
-     var shifu = require('@walmart/shifu');
+     var shifu = require('shifu');
 
      shifu.start({
        host: 'localhost',
        mockedDirectory: './mocks', // this can be provided as an absolute path as well.
        port: 8080,
        project: 'HelloShifu', //Replace HelloShifu with your project name (without dashes).
-       metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
      });
 </code></pre>
     </div>
@@ -339,8 +323,7 @@
     httpsPort: 4444,
     host: 'localhost',
     mockedDirectory: './test/resources/mocked-data',
-    project: 'HelloShifu',
-    metricsDB: 'http://kairos.prod.rapido.globalproducts.prod.walmart.com/api/v1/datapoints'
+    project: 'HelloShifu'
   });
 </code></pre>
     </div>
