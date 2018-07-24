@@ -1,4 +1,4 @@
-## Why Use Mock Server??
+## Why Use Mock Server?
 
 Most of the applications rely on one or many back end services. For successful test execution and fast development, all the dependent backend services should be reliable 100% of the time. However that is not possible as the backend services may be down from time to time for various reasons or may have data inconsistency issues which makes testing/development against live services inefficient and time consuming.
 
