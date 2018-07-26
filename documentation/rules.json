@@ -9,7 +9,6 @@
     "blurbs": true,
     "documentationAtLevel": 4,
     "nonDocButtonText": "Learn More",
-    "githubLink": "https://github.com/TestArmada/",
     "copyright": "&copy; 2018 Walmart Inc.",
     "favicon": "/documentation/images/favicon.ico"
   },
@@ -121,9 +120,23 @@
   },
   "customPages": ["About.md", "Presentations.md"],
   "customLinks": {
+    "FAQ": {
+      "type": "internal",
+      "url": "/faq"
+    }
+  },
+  "customSecondaryLinks": {
+    "Presentations": {
+      "type": "internal",
+      "url": "/documentation/Presentations"
+    },
     "About Us": {
       "type": "internal",
-      "url": "/documentation/About.html"
+      "url": "/documentation/About"
+    },
+    "GitHub": {
+      "type": "external",
+      "url": "https://github.com/TestArmada/"
     }
   },
   "placardLabels": [
