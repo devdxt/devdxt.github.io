@@ -105,19 +105,19 @@
 						All Fleets
 					</a>
 					
-					<a href="/Functional Testing/">
+					<a href="/documentation/Functional Testing/">
 						Functional Testing
 					</a>
 					
-					<a href="/Mocking/">
+					<a href="/documentation/Mocking/">
 						Mocking
 					</a>
 					
-					<a href="/Performance Testing/">
+					<a href="/documentation/Performance Testing/">
 						Performance Testing
 					</a>
 					
-					<a href="/Data Insights/">
+					<a href="/documentation/Data Insights/">
 						Data Insights
 					</a>
 					
@@ -146,7 +146,7 @@
            srcset="/images/arrow-right-icon%402x.png 2x,
                    /images/arrow-right-icon%403x.png 3x"
            class="arrow-right-icon">
-      <a class="breadcrumb__link" href="/Functional Testing/">Functional Testing</a>
+      <a class="breadcrumb__link" href="/documentation/Functional Testing/">Functional Testing</a>
       <img src="/images/arrow-right-icon.png"
            srcset="/images/arrow-right-icon%402x.png 2x,
                    /images/arrow-right-icon%403x.png 3x"
@@ -243,7 +243,7 @@
 	<script type="text/javascript">
 		document.querySelector('.search-box-sub').addEventListener('click', function() {
 			document.querySelector('.search-box-sub').classList.add('expand-input');
-			document.querySelector('.search-box-sub').placeholder = 'Search';
+			document.querySelector('.search-box-sub').placeholder = 'Enter text to search or "Esc" to close';
 			document.querySelector('.select-box-sub').classList.add('expand-select');
 		});
 		document.querySelector('.search-box-sub').onkeydown = function(evt) {
@@ -254,6 +254,15 @@
 				document.querySelector('.select-box-sub').classList.remove('expand-select');
 			}
 		};
+		document.querySelector('body').addEventListener('click', function(evt) {
+			evt = evt || window.event;
+			var ignore = '.search-box-sub, .select-box-sub, a, button';
+			if (!evt.target.matches(ignore)) {
+				document.querySelector('.search-box-sub').classList.remove('expand-input');
+				document.querySelector('.search-box-sub').placeholder = '';
+				document.querySelector('.select-box-sub').classList.remove('expand-select');
+			}
+		});
 	</script>
 
 </body>

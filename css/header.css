@@ -195,5 +195,9 @@ option {
 .nav-links__main-highlight-link {
   padding: 5px 10px !important;
   border-radius: 4px;
-  margin-left: 15px;
+  margin: 10px;
+}
+
+.nav-links__main-highlight-link:hover {
+  opacity: 0.9;
 }
