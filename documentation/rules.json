@@ -86,7 +86,7 @@
     "rootFolder": "Training Guide",
     "configFile": "config.json"
   },
-  "customDocumentation": {
+  "copyDocumentation": {
     "Mocking.Native Android.JAVASCRIPT": "Mocking/rWeb/JAVASCRIPT/Training Guide",
     "Mocking.Native iOS.JAVASCRIPT": "Mocking/rWeb/JAVASCRIPT/Training Guide",
     "Mocking.Services.JAVASCRIPT": "Mocking/rWeb/JAVASCRIPT/Training Guide"
@@ -119,13 +119,13 @@
     }
   },
   "customPages": ["About.md", "Presentations.md"],
-  "customLinks": {
+  "mainHeaderLinks": {
     "FAQ": {
       "type": "internal",
       "url": "/faq"
     }
   },
-  "customSecondaryLinks": {
+  "secondaryHeaderLinks": {
     "Presentations": {
       "type": "internal",
       "url": "/documentation/Presentations"
