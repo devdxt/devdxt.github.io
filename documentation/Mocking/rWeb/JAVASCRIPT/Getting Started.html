@@ -271,15 +271,16 @@
   <li>
     <p>Add Mock Server module dependency in <code class="highlighter-rouge">package.json</code> as shown below.</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> "name": "&lt;name-for-your-project&gt;",
- "dependencies": {
-   "testarmada-midway": "^1.0.1",
-   "testarmada-midway-magellan-nightwatch": "^1.0.1" // needed only for magellan/nightwatch
- },
- "scripts": {
-     "start-mock": "node mocks/run-mock-server-console.js"
- }
-</code></pre>
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-midway"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"testarmada-midway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.1"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"start-mock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node mocks/run-mock-server-console.js"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
     </div>
   </li>
   <li>Create another directory <code class="highlighter-rouge">mocks</code> under the <code class="highlighter-rouge">mock-server</code> directory.</li>
